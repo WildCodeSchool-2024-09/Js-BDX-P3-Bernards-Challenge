@@ -47,7 +47,7 @@ const add: RequestHandler = async (req, res, next) => {
     };
 
     // Create the manager
-    const insertId = await managerRepository.create(newManager);
+    const insertId = await managerRepository.create; //(newManager//);
 
     // Respond with HTTP 201 (Created) and the ID of the newly inserted item
     res.status(201).json({ insertId });
@@ -57,4 +57,5 @@ const add: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { browse, read, add };
+const destroy: RequestHandler = async (req, res, next) => {};
+export default { browse, read, add, destroy };

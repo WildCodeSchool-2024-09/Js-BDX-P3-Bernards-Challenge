@@ -20,8 +20,7 @@
 --   (1, "Stuff", 1),
 --   (2, "Doodads", 1);
 
-DROP DATABASE Bernards_Challenge;
-CREATE DATABASE Bernards_Challenge;
+CREATE DATABASE IF NOT EXISTS Bernards_Challenge ;
 
 use Bernards_Challenge;
 CREATE TABLE user (
@@ -30,7 +29,7 @@ CREATE TABLE user (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
     last_name VARCHAR(150) NOT NULL,
     first_name VARCHAR(100),
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL   
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP   
 );
 
 -- Table: application_user
@@ -59,9 +58,9 @@ CREATE TABLE enterprise (
 CREATE TABLE manager (
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     application_user_id INT UNSIGNED NOT NULL,
-    entreprise_id INT UNSIGNED NOT NULL,
+    enterprise_id INT UNSIGNED NOT NULL,
     FOREIGN KEY (application_user_id) REFERENCES application_user(id),
-    FOREIGN KEY (entreprise_id) REFERENCES enterprise(id)
+    FOREIGN KEY (enterprise_id) REFERENCES enterprise(id)
 );
 
 -- Table: channel_slack
@@ -82,7 +81,7 @@ CREATE TABLE question (
 -- Table: response
 CREATE TABLE response (
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    date TIMESTAMP,
+    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     question_id INT UNSIGNED NOT NULL,
     FOREIGN KEY (question_id) REFERENCES question(id)
 );
@@ -108,7 +107,7 @@ CREATE TABLE channel_slack_user_player (
 CREATE TABLE quizz (
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255),
-    created_date TIMESTAMP
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Table: team_player
@@ -146,7 +145,7 @@ CREATE TABLE channel_slack_quizz (
 -- Table: boolean_responses
 CREATE TABLE boolean_responses (
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    response BOOLEAN,
+    response BOOLEAN NOT NULL,
     response_id INT UNSIGNED NOT NULL,
     FOREIGN KEY (response_id) REFERENCES response(id)
 );
@@ -154,7 +153,7 @@ CREATE TABLE boolean_responses (
 -- Table: image_responses
 CREATE TABLE image_responses (
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    path VARCHAR(255),
+    path VARCHAR(255) NOT NULL,
     response_id INT UNSIGNED NOT NULL,
     FOREIGN KEY (response_id) REFERENCES response(id)
 );
@@ -162,7 +161,7 @@ CREATE TABLE image_responses (
 -- Table: text_responses
 CREATE TABLE text_responses (
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    response TEXT,
+    response TEXT NOT NULL,
     response_id INT UNSIGNED NOT NULL,
     FOREIGN KEY (response_id) REFERENCES response(id)
 );

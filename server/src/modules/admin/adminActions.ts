@@ -28,7 +28,10 @@ const read: RequestHandler = async (req, res, next) => {
 const add: RequestHandler = async (req, res, next) => {
   try {
     const newAdmin = {
-      application_user_id: req.body.application_user_id,
+      email: req.body.email,
+      last_name: req.body.last_name,
+      first_name: req.body.first_name,
+      password: req.body.password,
     };
     const insertId = await adminRepository.create(newAdmin);
     res.status(201).json({ insertId });
@@ -41,11 +44,14 @@ const update: RequestHandler = async (req, res, next) => {
   try {
     const updatedAdmin = {
       id: Number(req.params.id),
-      application_user_id: req.body.application_user_id,
+      email: req.body.email,
+      last_name: req.body.last_name,
+      first_name: req.body.first_name,
+      password: req.body.password,
     };
     const success = await adminRepository.update(updatedAdmin);
     if (success) {
-      res.sendStatus(200);
+      res.sendStatus(204);
     } else {
       res.sendStatus(404);
     }

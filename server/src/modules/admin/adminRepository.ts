@@ -1,72 +1,122 @@
-import { application } from "express";
 import databaseClient from "../../../database/client";
 import type { Result, Rows } from "../../../database/client";
 
-type Admin = {
+type User = {
   id: number;
-  application_user_id: number;
+  mail: string;
+  first_name?: string;
+};
+
+type AdminData = {
+  email: string;
+  last_name: string;
+  first_name: string;
+  password: string;
 };
 
 class AdminRepository {
-  
-  async create(admin: Omit<Admin, "id">) {
-    const [result] = await databaseClient.query<Result>(
-      "INSERT INTO admin (application_user_id) VALUES (?)",
-      [admin.application_user_id],
-    );
-    return result.insertId;
+  async create(adminData: AdminData) {
+    const connection = await databaseClient.getConnection();
+    try {
+      await connection.beginTransaction();
+
+      const [userResult] = await connection.query<Result>(
+        "INSERT INTO user (mail, first_name) VALUES (?, ?)",
+        [adminData.email, adminData.first_name]
+      );
+
+      const userId = userResult.insertId;
+
+      const [appUserResult] = await connection.query<Result>(
+        "INSERT INTO application_user (password, user_id) VALUES (?, ?)",
+        [adminData.password, userId]
+      );
+
+      const applicationUserId = appUserResult.insertId;
+
+      const [adminResult] = await connection.query<Result>(
+        "INSERT INTO administrateur (application_user_id) VALUES (?)",
+        [applicationUserId]
+      );
+
+      await connection.commit();
+      return adminResult.insertId;
+    } catch (err) {
+      await connection.rollback();
+      throw err;
+    } finally {
+      connection.release();
+    }
   }
 
-  
   async read(id: number) {
     const [rows] = await databaseClient.query<Rows>(
-      
-    `SELECT last_name, first_name, email
-      FROM users
-      INNER JOIN application_user on application_user.user_id= user.id
-      INNER JOIN administrators on administrators.application_user_id= application_user.id
-      WHERE administrators.id = ?
-      `,[id],
+      `SELECT u.mail, u.first_name, au.password
+       FROM administrateur a
+       INNER JOIN application_user au ON a.application_user_id = au.id
+       INNER JOIN user u ON au.user_id = u.id
+       WHERE a.id = ?`,
+      [id]
     );
-    return rows[0] as Admin;
+    return rows[0] as User;
   }
 
-  
   async readAll() {
     const [rows] = await databaseClient.query<Rows>(
-      `SELECT last_name, first_name, email
-      FROM users
-      INNER JOIN application_user on application_user.user_id= user.id
-      INNER JOIN administrators on administrators.application_user_id= application_user.id`);
-    return rows as Admin[];
-  }
-
-  
-  async update(admin: Admin) {
-    const [result] = await databaseClient.query<Result>(
-      "UPDATE admin SET application_user_id = ? WHERE id = ?",
-      [admin.application_user_id, admin.id],
+      `SELECT u.mail, u.first_name, au.password
+       FROM administrateur a
+       INNER JOIN application_user au ON a.application_user_id = au.id
+       INNER JOIN user u ON au.user_id = u.id`
     );
-    return result.affectedRows > 0; 
+    return rows as User[];
   }
 
-  
+  async update(admin: AdminData & { id: number }) {
+    const connection = await databaseClient.getConnection();
+    try {
+      await connection.beginTransaction();
+
+      await connection.query(
+        `UPDATE user u
+        INNER JOIN application_user au ON u.id = au.user_id
+        INNER JOIN administrateur a ON a.application_user_id = au.id
+        SET u.mail = ?, u.first_name = ?, au.password = ?
+        WHERE a.id = ?`,
+        [admin.email, admin.first_name, admin.password, admin.id]
+      );
+
+      await connection.commit();
+      return true;
+    } catch (err) {
+      await connection.rollback();
+      return false;
+    } finally {
+      connection.release();
+    }
+  }
+
   async delete(id: number) {
-    const [result] = await databaseClient.query<Result>(
-      `DELETE FROM user 
-      WHERE id = (
-        SELECT user_id
-        FROM application_user
-        WHERE id=(
-          SELECT application_user_id
-          FROM administrator
-          WHERE id= ? 
-        )
-      )    
-      `,
-      [id],
-    );
-    return result.affectedRows; 
+    const connection = await databaseClient.getConnection();
+    try {
+      await connection.beginTransaction();
+
+      await connection.query(
+        `DELETE FROM user WHERE id = (
+          SELECT u.id FROM user u
+          INNER JOIN application_user au ON u.id = au.user_id
+          INNER JOIN administrateur a ON au.id = a.application_user_id
+          WHERE a.id = ?)`,
+        [id]
+      );
+
+      await connection.commit();
+      return true;
+    } catch (err) {
+      await connection.rollback();
+      return false;
+    } finally {
+      connection.release();
+    }
   }
 }
 

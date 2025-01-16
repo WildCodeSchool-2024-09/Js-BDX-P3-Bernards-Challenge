@@ -1,7 +1,6 @@
 import type { RequestHandler } from "express";
 import adminRepository from "./adminRepository";
 
-
 const browse: RequestHandler = async (req, res, next) => {
   try {
     const admins = await adminRepository.readAll();
@@ -15,7 +14,7 @@ const read: RequestHandler = async (req, res, next) => {
   try {
     const adminId = Number(req.params.id);
     const admin = await adminRepository.read(adminId);
-    if (admin == null) {
+    if (!admin) {
       res.sendStatus(404);
     } else {
       res.json(admin);

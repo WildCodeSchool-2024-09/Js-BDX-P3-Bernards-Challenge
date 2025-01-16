@@ -21,11 +21,14 @@ class AdminRepository {
       await connection.beginTransaction();
 
       const [userResult] = await connection.query<Result>(
-        "INSERT INTO user (mail, first_name) VALUES (?, ?)",
-        [adminData.email, adminData.first_name]
+        "INSERT INTO user (email, first_name, last_name) VALUES (?, ?, ?)",
+        [adminData.email, adminData.first_name, adminData.last_name]
       );
 
       const userId = userResult.insertId;
+      if(!userId){
+        throw new Error ("Failed insert into user")
+      }
 
       const [appUserResult] = await connection.query<Result>(
         "INSERT INTO application_user (password, user_id) VALUES (?, ?)",
@@ -33,11 +36,17 @@ class AdminRepository {
       );
 
       const applicationUserId = appUserResult.insertId;
+      if(!applicationUserId){
+        throw new Error ("Failed insert into application_user")
+      }
 
       const [adminResult] = await connection.query<Result>(
-        "INSERT INTO administrateur (application_user_id) VALUES (?)",
+        "INSERT INTO administrators (application_user_id) VALUES (?)",
         [applicationUserId]
       );
+      if (!adminResult.insertId){
+        throw new Error ("Failed insert into administrators")
+      }
 
       await connection.commit();
       return adminResult.insertId;
@@ -51,8 +60,8 @@ class AdminRepository {
 
   async read(id: number) {
     const [rows] = await databaseClient.query<Rows>(
-      `SELECT u.mail, u.first_name, au.password
-       FROM administrateur a
+      `SELECT u.email, u.first_name, u.last_name
+       FROM administrators a
        INNER JOIN application_user au ON a.application_user_id = au.id
        INNER JOIN user u ON au.user_id = u.id
        WHERE a.id = ?`,
@@ -63,8 +72,8 @@ class AdminRepository {
 
   async readAll() {
     const [rows] = await databaseClient.query<Rows>(
-      `SELECT u.mail, u.first_name, au.password
-       FROM administrateur a
+      `SELECT u.email, u.first_name, u.last_name
+       FROM administrators a
        INNER JOIN application_user au ON a.application_user_id = au.id
        INNER JOIN user u ON au.user_id = u.id`
     );
@@ -79,10 +88,10 @@ class AdminRepository {
       await connection.query(
         `UPDATE user u
         INNER JOIN application_user au ON u.id = au.user_id
-        INNER JOIN administrateur a ON a.application_user_id = au.id
-        SET u.mail = ?, u.first_name = ?, au.password = ?
+        INNER JOIN administrators a ON a.application_user_id = au.id
+        SET u.email = ?, u.first_name = ?, u.last_name, au.password = ?
         WHERE a.id = ?`,
-        [admin.email, admin.first_name, admin.password, admin.id]
+        [admin.email, admin.first_name, admin.last_name, admin.password, admin.id]
       );
 
       await connection.commit();
@@ -104,7 +113,7 @@ class AdminRepository {
         `DELETE FROM user WHERE id = (
           SELECT u.id FROM user u
           INNER JOIN application_user au ON u.id = au.user_id
-          INNER JOIN administrateur a ON au.id = a.application_user_id
+          INNER JOIN administrators a ON au.id = a.application_user_id
           WHERE a.id = ?)`,
         [id]
       );

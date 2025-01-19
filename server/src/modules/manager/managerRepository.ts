@@ -1,4 +1,3 @@
-import argon2 from "argon2";
 import databaseClient from "../../../database/client";
 
 import type { Result, Rows } from "../../../database/client";
@@ -158,14 +157,15 @@ class ManagerRepository {
     try {
       const [result] = await databaseClient.query<Result>(
         `
-      DELETE FROM application_user
-        WHERE id = ?
-        `,
+      DELETE FROM application_user 
+        WHERE id = (
+          SELECT application_user_id
+          FROM manager
+          WHERE id = ?
+          )`,
         [id],
       );
-      if (result.affectedRows === 0) {
-        throw new Error(`No entry found with ID ${id}`);
-      }
+      return result.affectedRows;
     } catch (error) {
       throw new Error(`Failed to delete with ID ${id}`);
     }

@@ -1,5 +1,4 @@
 import type { RequestHandler } from "express";
-import e, { application } from "express";
 // Import access to data
 import managerRepository from "./managerRepository";
 
@@ -63,8 +62,8 @@ const update: RequestHandler = async (req, res, next) => {
     // Extract the item data from the request body
     const managerId = Number(req.params.id);
     const updatedManager = {
-      first_name: req.body.firstname,
-      last_name: req.body.lastname,
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
       password: req.body.password,
       email: req.body.email,
       id: managerId,
@@ -84,15 +83,14 @@ const update: RequestHandler = async (req, res, next) => {
 
 const destroy: RequestHandler = async (req, res, next) => {
   try {
-    // Extract the ID of the item to delete
-    const application_user = Number(req.params.id);
-
-    await managerRepository.delete(application_user);
-
-    // Respond with HTTP 204 (No Content)
-    res.sendStatus(204);
+    const managerId = Number(req.params.id);
+    const succes = await managerRepository.delete(managerId);
+    if (succes === 1) {
+      res.sendStatus(204);
+    } else {
+      res.sendStatus(404);
+    }
   } catch (err) {
-    // Pass any errors to the error-handling middleware
     next(err);
   }
 };

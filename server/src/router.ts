@@ -8,11 +8,11 @@ const router = express.Router();
 
 import managerActions from "./modules/manager/managerActions";
 
-router.get("/api/managers", managerActions.browse);
-router.get("/api/managers/:id", managerActions.read);
-router.post("/api/managers", managerActions.add);
-router.patch("/api/managers/:id", managerActions.update);
-router.delete("/api/managers/:id", managerActions.destroy);
+router.get("/api/readallmanagers", managerActions.browse);
+router.get("/api/readmanager/:id", managerActions.read);
+router.post("/api/addmanager", managerActions.add);
+router.patch("/api/updatemanager/:id", managerActions.update);
+router.delete("/api/deletemanager/:id", managerActions.destroy);
 
 /* ************************************************************************* */
 

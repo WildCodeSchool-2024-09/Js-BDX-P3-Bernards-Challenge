@@ -7,15 +7,16 @@ type Manager = {
   last_name: string;
   first_name: string;
   email: string;
-  password: string;
   enterprise_id: number;
+  application_user_id: number;
+  hashed_password: string;
 };
 
 type createManager = {
   id: number;
   application_user_id?: number;
   user_id?: number;
-  password: string;
+  hashed_password: string;
   enterprise_id: number;
 };
 
@@ -27,7 +28,7 @@ class ManagerRepository {
 
       const [applicationUserResult] = await connection.query<Result>(
         "INSERT INTO application_user (password, user_id) VALUES (?, ?)",
-        [manager.password, manager.user_id],
+        [manager.hashed_password, manager.user_id],
       );
 
       const applicationUserId = applicationUserResult.insertId;
@@ -107,7 +108,7 @@ class ManagerRepository {
             FROM manager 
             WHERE id = ?
           )`,
-        [manager.password, manager.id],
+        [manager.hashed_password, manager.id],
       );
 
       const applicationUserId = applicationUserResult.affectedRows > 0;
@@ -169,6 +170,22 @@ class ManagerRepository {
     } catch (error) {
       throw new Error(`Failed to delete with ID ${id}`);
     }
+  }
+
+  async readByEmailWithPassword(Manager: Manager) {
+    // Execute the SQL SELECT query to retrieve a specific user by its email
+    const [rows] = await databaseClient.query<Rows>(
+      `
+      SELECT email, password, application_user.id
+      FROM user
+      WHERE email = ?
+      INNER JOIN application_user ON user.id = application_user.user_id
+      `,
+      [Manager.email, Manager.hashed_password, Manager.application_user_id],
+    );
+
+    // Return the first row of the result, which represents the user
+    return rows[0] as Manager;
   }
 }
 

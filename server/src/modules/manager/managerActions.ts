@@ -1,4 +1,4 @@
-import type { RequestHandler } from "express";
+import { type RequestHandler, application } from "express";
 // Import access to data
 import managerRepository from "./managerRepository";
 
@@ -43,7 +43,7 @@ const add: RequestHandler = async (req, res, next) => {
     const newManager = {
       user_id: req.body.user_id,
       enterprise_id: req.body.enterprise_id,
-      password: req.body.password,
+      hashed_password: req.body.hashed_password,
     };
 
     // Create the manager
@@ -64,10 +64,11 @@ const update: RequestHandler = async (req, res, next) => {
     const updatedManager = {
       first_name: req.body.first_name,
       last_name: req.body.last_name,
-      password: req.body.password,
+      hashed_password: req.body.password,
       email: req.body.email,
       id: managerId,
       enterprise_id: req.body.enterprise_id,
+      application_user_id: req.body.application_user_id,
     };
 
     // Update the manager
@@ -94,4 +95,5 @@ const destroy: RequestHandler = async (req, res, next) => {
     next(err);
   }
 };
+
 export default { browse, read, add, destroy, update };

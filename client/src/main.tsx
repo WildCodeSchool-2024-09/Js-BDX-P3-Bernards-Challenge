@@ -1,3 +1,4 @@
+// src/index.tsx ou dans le fichier où tu gères tes routes
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
@@ -8,10 +9,10 @@ import Profil from "./pages/profil/Profil";
 import Quizz from "./pages/quizz/Quizz";
 import Result from "./pages/result/Result";
 import Transmission from "./pages/transmission/Transmission";
+import Invitation from "./pages/invitation/Invitation";
 
 const router = createBrowserRouter([
   {
-    path: "/",
     element: <App />,
     children: [
       { path: "/", element: <Home /> },
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
       { path: "/quizz", element: <Quizz /> },
       { path: "/result", element: <Result /> },
       { path: "/transmission", element: <Transmission /> },
+      { path: "/invitation", element: <Invitation /> },
     ],
   },
 ]);

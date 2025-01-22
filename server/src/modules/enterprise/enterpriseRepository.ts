@@ -21,37 +21,47 @@ class EnterpriseRepository {
   async create(enterprise: Omit<Enterprise, "id">) {
     const { name, token_slack } = enterprise;
 
-      const [result] = await databaseClient.query<Result>(
-        "INSERT INTO enterprise (name, token_slack) VALUES (?, ?)",
-        [name, token_slack]
-      );
+    const [result] = await databaseClient.query<Result>(
+      "INSERT INTO enterprise (name, token_slack) VALUES (?, ?)",
+      [name, token_slack]
+    );
 
-      const enterpriseId = result.insertId;
+    const enterpriseId = result.insertId;
 
-      return enterpriseId;
+    return enterpriseId;
   }
 
-  async update( enterprise: Enterprise) {
+  async update(enterprise: Enterprise) {
+    const [result] = await databaseClient.query<Result>(
+      `UPDATE enterprise 
+       SET name = ?, token_slack = ? 
+       WHERE id = ?`,
+      [enterprise.name, enterprise.token_slack, enterprise.id]
+    );
 
-      const [result] = await databaseClient.query<Result>(
-        `UPDATE enterprise 
-        SET name = ?, token_slack = ? 
-        WHERE id = ?`,
-        [enterprise.name, enterprise.token_slack, enterprise.id]
-      );
-
-      return result.affectedRows
+    return result.affectedRows;
   }
+
   async delete(id: number) {
     const connection = await databaseClient.getConnection();
     try {
       await connection.beginTransaction();
 
-      // Exemple : Supprimer des dépendances avant de supprimer l'entreprise
-      await connection.query<Result>("DELETE FROM administrators WHERE enterprise_id = ?", [id]);
-      await connection.query<Result>("DELETE FROM channel_slack WHERE entreprise_id = ?", [id]);
+      const [deleteChannelsResult] = await connection.query<Result>(
+        "DELETE FROM channel_slack WHERE entreprise_id = ?",
+        [id]
+      );
+      if (deleteChannelsResult.affectedRows === 0) {
+        throw new Error(`Aucune ligne supprimée pour les channels Slack de l'entreprise avec l'ID ${id}`);
+      }
 
-      await connection.query<Result>("DELETE FROM enterprise WHERE id = ?", [id]);
+      const [deleteEnterpriseResult] = await connection.query<Result>(
+        "DELETE FROM enterprise WHERE id = ?",
+        [id]
+      );
+      if (deleteEnterpriseResult.affectedRows === 0) {
+        throw new Error(`Aucune ligne supprimée pour l'entreprise avec l'ID ${id}`);
+      }
 
       await connection.commit();
     } catch (error) {

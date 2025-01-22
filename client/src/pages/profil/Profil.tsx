@@ -3,8 +3,51 @@ import styles from "./Profil.module.css";
 const Profil = () => {
   return (
     <section className={styles.profil}>
-      <h1 className={styles.profil__title}>Profil</h1>
-      <p className={styles.profil__description}>Gestion de votre profil</p>
+      <hgroup>
+        <h1 className={styles.profil__title}>Profil</h1>
+        <p className={styles.profil__description}>Gestion de votre profil</p>
+      </hgroup>
+
+      <section className={styles.profil__formSection}>
+        <hgroup>
+          <h2 className={styles.profil__sectionTitle}>Modifier mon profil</h2>
+        </hgroup>
+        <form className={styles.profil__form}>
+          <label htmlFor="firstName" className={styles.profil__label}>Prénom</label>
+          <input
+            type="text"
+            id="firstName"
+            className={styles.profil__input}
+            placeholder="Prénom"
+          />
+
+          <label htmlFor="lastName" className={styles.profil__label}>Nom</label>
+          <input
+            type="text"
+            id="lastName"
+            className={styles.profil__input}
+            placeholder="Nom"
+          />
+
+          <label htmlFor="email" className={styles.profil__label}>Email</label>
+          <input
+            type="email"
+            id="email"
+            className={styles.profil__input}
+            placeholder="Email"
+          />
+
+          <label htmlFor="password" className={styles.profil__label}>Mot de passe</label>
+          <input
+            type="password"
+            id="password"
+            className={styles.profil__input}
+            placeholder="Mot de passe"
+          />
+
+          <button type="submit" className={styles.profil__submitButton}>Sauvegarder</button>
+        </form>
+      </section>
     </section>
   );
 };

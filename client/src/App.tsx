@@ -7,8 +7,8 @@ const App = () => {
   return (
     <ThemeProvider>
       <Navbar />
-      <main style={{ marginLeft: "250px", padding: "20px" }}>
-        <Outlet /> 
+      <main className="main-content">
+        <Outlet />
       </main>
     </ThemeProvider>
   );

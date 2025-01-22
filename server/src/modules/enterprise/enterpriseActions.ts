@@ -41,17 +41,20 @@ const edit: RequestHandler = async (req, res, next) => {
       id: enterpriseId, 
       name,
       token_slack,
-  }
+  };
 
     const result = await enterpriseRepository.update(enterprise);
 
-      if (!result){res.sendStatus(404); return;}
+    if (!result) {
+      res.sendStatus(404);
+      return;
+    }
 
     res.sendStatus(204);
   } catch (err) {
     next(err);
   }
-}
+};
 
 const add: RequestHandler = async (req, res, next) => {
   try {
@@ -70,4 +73,16 @@ const add: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { browse, read, add };
+const remove: RequestHandler = async (req, res, next) => {
+  try {
+    const enterpriseId = Number(req.params.id);
+
+    await enterpriseRepository.delete(enterpriseId);
+
+    res.sendStatus(204);
+  } catch (err) {
+    next(err);
+  }
+};
+
+export default { browse, read, add, edit, remove };

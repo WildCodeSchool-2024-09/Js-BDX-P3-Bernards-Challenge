@@ -1,8 +1,14 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
+import type { Context } from "react";
 
-const ThemeContext = createContext<{ isDarkMode: boolean; toggleTheme: () => void } | undefined>(undefined);
+const ThemeContext: Context<{ isDarkMode: boolean; toggleTheme: () => void } | undefined> = 
+  createContext<{ isDarkMode: boolean; toggleTheme: () => void } | undefined>(undefined);
 
-export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+type ThemeProviderProps = {
+  children: ReactNode;
+};
+
+export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [isDarkMode, setIsDarkMode] = useState(true);
 
   const toggleTheme = () => {
@@ -11,7 +17,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   useEffect(() => {
     document.body.classList.toggle("dark-mode", isDarkMode);
-    document.body.classList.toggle("light-mode", !isDarkMode);
   }, [isDarkMode]);
 
   return (

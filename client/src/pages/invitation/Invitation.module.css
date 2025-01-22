@@ -1,6 +1,6 @@
 @import '../../App.css';
 
-.home {
+.administrateur {
   margin-top: var(--spacing-large);
   display: flex;
   flex-direction: column;
@@ -8,7 +8,7 @@
   height: calc(100% - var(--spacing-medium));
 }
 
-.home__title {
+.administrateur__title {
   color: var(--secondary-color);
   text-align: center;
   font-size: 7rem;
@@ -17,67 +17,60 @@
   word-wrap: break-word;
 }
 
-.home__description {
+.administrateur__description {
   font-size: 3rem;
   text-align: center;
   margin-bottom: var(--spacing-large);
 }
 
-.home__section {
+.administrateur__addUser {
   width: 80%;
-  margin-bottom: var(--spacing-medium);
+  margin-top: var(--spacing-large);
   padding: var(--spacing-large);
-  border: 1px solid var(--primary-color);
-  border-radius: var(--spacing-medium);
-  text-align: center;
   background-color: var(--primary-color);
   color: var(--secondary-color);
+  border-radius: var(--spacing-medium);
   box-shadow: var(--shadow-medium);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-.home__section:hover {
-  box-shadow: var(--shadow-heavy);
-}
-
-.section__title {
+.administrateur__sectionTitle {
   font-size: 2.5rem;
-  margin-bottom: var(--spacing-large);
+  margin-bottom: var(--spacing-medium);
+  text-align: center;
 }
 
-.home__form {
+.administrateur__form {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: var(--spacing-medium);
+  align-items: center;
 }
 
-.home__input {
-  width: 45%;
+.administrateur__label {
+  font-size: 1.6rem;
+  color: var(--secondary-color);
+}
+
+.administrateur__input {
   padding: var(--spacing-small);
   font-size: 1.6rem;
   border: 1px solid var(--primary-color);
   border-radius: var(--spacing-small);
-  margin-bottom: var(--spacing-small);
+  width: 40%;
 }
 
-.home__forgotPassword {
-  font-size: 1.4rem;
-  color: var(--accent-color);
-  text-decoration: none;
-  margin-bottom: var(--spacing-medium);
-  background-color: transparent;
-  border: none;
-  padding: 0;
+.administrateur__inputGroup {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-small);
 }
 
-.home__forgotPassword:hover {
-  text-decoration: underline;
-  background-color: transparent;
+.administrateur__inputGroup .administrateur__input {
+  width: 48%;
 }
 
-.home__button {
-  width: 20%;
+.administrateur__submitButton {
+  width: 15%;
   padding: var(--spacing-small) var(--spacing-medium);
   font-size: 1.6rem;
   color: var(--text-light);
@@ -86,9 +79,24 @@
   border-radius: var(--spacing-small);
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
+  align-self: center;
 }
 
-.home__button:hover {
+.administrateur__submitButton:hover {
   background-color: var(--secondary-color-dark);
   color: var(--text-dark);
+}
+
+.administrateur__button {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: var(--spacing-small) var(--spacing-medium);
+  border-radius: var(--spacing-small);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.administrateur__button:hover {
+  background-color: var(--secondary-color);
+  color: var(--text-light);
 }

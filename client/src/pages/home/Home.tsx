@@ -1,10 +1,49 @@
 import styles from "./Home.module.css";
 
 const Home = () => {
+  const handleForgotPassword = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault(); 
+  };
+
   return (
     <section className={styles.home}>
-      <h1 className={styles.home__title}>Bernard's Challenges</h1>
-      <p className={styles.home__description}>Rejoignez-nous sur Slack</p>
+      <hgroup>
+        <h1 className={styles.home__title}>Bernard's Challenges</h1>
+        <p className={styles.home__description}>Rejoignez-nous sur Slack</p>
+      </hgroup>
+
+      <section className={styles.home__section}>
+        <hgroup>
+          <h2 className={styles.section__title}>Connexion</h2>
+        </hgroup>
+
+        <form className={styles.home__form}>
+          <input
+            type="email"
+            placeholder="Email"
+            className={styles.home__input}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Mot de passe"
+            className={styles.home__input}
+            required
+          />
+
+          <button 
+            type="button" 
+            className={styles.home__forgotPassword}
+            onClick={handleForgotPassword}
+          >
+            Mot de passe oublié ?
+          </button>
+
+          <button type="submit" className={styles.home__button}>
+            Se connecter
+          </button>
+        </form>
+      </section>
     </section>
   );
 };

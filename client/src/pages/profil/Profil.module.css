@@ -1,11 +1,11 @@
 @import '../../App.css';
 
 .profil {
-  margin-top: 8rem;
+  margin-top: var(--spacing-large);
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: calc(100% - 3.125rem);
+  height: calc(100% - var(--spacing-medium));
 }
 
 .profil__title {
@@ -19,4 +19,56 @@
 .profil__description {
   font-size: 3rem;
   text-align: center;
+}
+
+.profil__formSection {
+  width: 80%;
+  margin-top: var(--spacing-large);
+  padding: var(--spacing-large);
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border-radius: var(--spacing-medium);
+  box-shadow: var(--shadow-medium);
+}
+
+.profil__sectionTitle {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-medium);
+  text-align: center;
+}
+
+.profil__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+  align-items: center;
+}
+
+.profil__label {
+  font-size: 1.6rem;
+  color: var(--secondary-color);
+}
+
+.profil__input {
+  padding: var(--spacing-small);
+  font-size: 1.6rem;
+  border: 1px solid var(--primary-color);
+  border-radius: var(--spacing-small);
+  width: 48%;
+}
+
+.profil__submitButton {
+  padding: var(--spacing-small) var(--spacing-medium);
+  font-size: 1.6rem;
+  color: var(--text-light);
+  background-color: var(--secondary-color);
+  border: none;
+  border-radius: var(--spacing-small);
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.profil__submitButton:hover {
+  background-color: var(--secondary-color-dark);
+  color: var(--text-dark);
 }

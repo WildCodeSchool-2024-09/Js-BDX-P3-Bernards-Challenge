@@ -13,6 +13,14 @@ router.get("/api/items", itemActions.browse);
 router.get("/api/items/:id", itemActions.read);
 router.post("/api/items", itemActions.add);
 
+import quizzActions from "./modules/quizz/quizzActions";
+
+router.get("/api/quizz", quizzActions.browse);
+router.get("/api/quizz/:id", quizzActions.read);
+router.post("/api/quizz", quizzActions.add);
+router.patch("/api/quizz/:id", quizzActions.update);
+router.delete("/api/quizz/:id", quizzActions.destroy);
+
 /* ************************************************************************* */
 
 export default router;

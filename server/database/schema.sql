@@ -1,7 +1,6 @@
 
 CREATE DATABASE IF NOT EXISTS Bernards_Challenge ;
 
-use Bernards_Challenge;
 CREATE TABLE  user (
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(255) NOT NULL UNIQUE,
@@ -51,14 +50,8 @@ CREATE TABLE channel_slack (
     FOREIGN KEY (entreprise_id) REFERENCES enterprise(id) ON DELETE CASCADE
 );
 
--- Table: question
-CREATE TABLE question (
-    id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    title VARCHAR(255)
-);
-
 -- Table: response
-CREATE TABLE response (
+CREATE TABLE response (,
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     question_id INT UNSIGNED NOT NULL,
@@ -87,6 +80,22 @@ CREATE TABLE quizz (
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255),
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Table: question
+CREATE TABLE question (
+    id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    quizz_id INT UNSIGNED NOT NULL,
+    FOREIGN KEY quizz_id REFERENCES quizz(id) ON DELETE CASCADE
+);
+
+CREATE TABLE fields (
+    id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    content TEXT NOT NULL,
+    status BOOLEAN DEFAULT false,
+    question_id INT UNSIGNED NOT NULL,
+    FOREIGN KEY question_id REFERENCES question(id) ON DELETE CASCADE
 );
 
 -- Table: team_player
@@ -132,7 +141,7 @@ CREATE TABLE boolean_responses (
 -- Table: image_responses
 CREATE TABLE image_responses (
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    path VARCHAR(255) NOT NULL,
+    response VARCHAR(255) NOT NULL,
     response_id INT UNSIGNED NOT NULL,
     FOREIGN KEY (response_id) REFERENCES response(id)
 );

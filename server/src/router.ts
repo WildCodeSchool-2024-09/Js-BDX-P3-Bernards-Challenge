@@ -18,7 +18,7 @@ import quizzActions from "./modules/quizz/quizzActions";
 router.get("/api/quizz", quizzActions.browse);
 router.get("/api/quizz/:id", quizzActions.read);
 router.post("/api/quizz", quizzActions.add);
-router.patch("/api/quizz/:id", quizzActions.update);
+router.put("/api/quizz/:id", quizzActions.update);
 router.delete("/api/quizz/:id", quizzActions.destroy);
 
 /* ************************************************************************* */

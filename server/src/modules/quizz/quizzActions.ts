@@ -41,8 +41,8 @@ const add: RequestHandler = async (req, res, next) => {
   try {
     // Extract the item data from the request body
     const newquizz = {
-      question_id: req.body.question_id,
       name: req.body.name,
+      questions: req.body.questions,
     };
 
     // Create the quizz
@@ -63,7 +63,7 @@ const update: RequestHandler = async (req, res, next) => {
     const updatedquizz = {
       id: quizzId,
       name: req.body.name,
-      question_id: req.body.question_id,
+      questions: req.body.questions,
     };
 
     // Update the quizz
@@ -81,7 +81,7 @@ const destroy: RequestHandler = async (req, res, next) => {
   try {
     const quizzId = Number(req.params.id);
     const succes = await quizzRepository.delete(quizzId);
-    if (succes === 1) {
+    if (succes) {
       res.sendStatus(204);
     } else {
       res.sendStatus(404);

@@ -7,7 +7,8 @@ import { useNavigate, useOutletContext } from "react-router-dom";
 type User = {
   id: number;
   email: string;
-  is_admin: boolean;
+  first_name: string;
+  last_name: string;
 };
 
 type Auth = {
@@ -30,13 +31,12 @@ function Login() {
   // Gestionnaire de soumission du formulaire
   const handleSubmit: FormEventHandler = async (event) => {
     event.preventDefault();
-
     try {
       // Appel à l'API pour demander une connexion
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/api/login`,
         {
-          method: "post",
+          method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             email:

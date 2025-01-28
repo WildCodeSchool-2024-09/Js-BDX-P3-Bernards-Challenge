@@ -3,7 +3,7 @@ import { useRef } from "react";
 import type { FormEventHandler } from "react";
 
 import {
-  useLoaderData,
+  // useLoaderData,
   useOutletContext,
   useRevalidator,
 } from "react-router-dom";
@@ -19,15 +19,13 @@ type Auth = {
   token: string;
 };
 
-type Item = {
-  id: number;
-  title: string;
-  user_id: number;
-};
+// type Item = {
+//   id: number;
+//   title: string;
+//   user_id: number;
+// };
 
 function Home() {
-  const items = useLoaderData() as Item[];
-
   const titleRef = useRef<HTMLInputElement>(null);
 
   const { auth } = useOutletContext() as { auth: Auth | null };
@@ -86,11 +84,6 @@ function Home() {
           <button type="submit">Send</button>
         </form>
       )}
-      <ul>
-        {items.map(({ id, title }) => (
-          <li key={id}>{title}</li>
-        ))}
-      </ul>
     </>
   );
 }

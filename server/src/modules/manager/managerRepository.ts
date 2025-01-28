@@ -10,6 +10,7 @@ type Manager = {
   enterprise_id: number;
   application_user_id: number;
   hashed_password: string;
+  password: string;
 };
 
 type createManager = {
@@ -172,16 +173,16 @@ class ManagerRepository {
     }
   }
 
-  async readByEmailWithPassword(Manager: Manager) {
+  async readByEmailWithPassword(email: string) {
     // Execute the SQL SELECT query to retrieve a specific user by its email
     const [rows] = await databaseClient.query<Rows>(
       `
       SELECT email, password, application_user.id
       FROM user
-      WHERE email = ?
       INNER JOIN application_user ON user.id = application_user.user_id
+      WHERE email = ?;
       `,
-      [Manager.email, Manager.hashed_password, Manager.application_user_id],
+      [email],
     );
 
     // Return the first row of the result, which represents the user

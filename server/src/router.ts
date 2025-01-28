@@ -20,6 +20,11 @@ router.post(
   managerActions.add,
 );
 
+import authActions from "./modules/auth/authActions";
+
+router.post("/api/login", authActions.login);
+router.use(authActions.verifyToken);
+
 /* ************************************************************************* */
 
 export default router;

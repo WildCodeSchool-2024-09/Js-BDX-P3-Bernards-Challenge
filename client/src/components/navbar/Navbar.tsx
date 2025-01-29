@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useTheme } from "../../contexts/ThemeContext";
 import styles from './Navbar.module.css';
 
@@ -15,12 +15,41 @@ const Navbar = () => {
         />
       </Link>
       <ul className={styles.navbar__links}>
-        <li><Link to="/profil">Profil</Link></li>
-        <li><Link to="/Administrateur">Administrateur</Link></li>
-        <li><Link to="/Invitation">Invitation</Link></li>
-        <li><Link to="/quizz">Quizz</Link></li>
-        <li><Link to="/transmission">Diffusion</Link></li>
-        <li><Link to="/result">Résultat</Link></li>
+        <li>
+          <NavLink to="/profil" className={({ isActive }) => isActive ? `${styles.navbar__link} ${styles.navbar__linkActive}` : styles.navbar__link}>
+            Profil
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/Administrateur" className={({ isActive }) => isActive ? `${styles.navbar__link} ${styles.navbar__linkActive}` : styles.navbar__link}>
+            Administrateur
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/Entreprise" className={({ isActive }) => isActive ? `${styles.navbar__link} ${styles.navbar__linkActive}` : styles.navbar__link}>
+            Entreprise
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/Invitation" className={({ isActive }) => isActive ? `${styles.navbar__link} ${styles.navbar__linkActive}` : styles.navbar__link}>
+            Invitation
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/quizz" className={({ isActive }) => isActive ? `${styles.navbar__link} ${styles.navbar__linkActive}` : styles.navbar__link}>
+            Quizz
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/transmission" className={({ isActive }) => isActive ? `${styles.navbar__link} ${styles.navbar__linkActive}` : styles.navbar__link}>
+            Diffusion
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/result" className={({ isActive }) => isActive ? `${styles.navbar__link} ${styles.navbar__linkActive}` : styles.navbar__link}>
+            Résultat
+          </NavLink>
+        </li>
       </ul>
       <button
         type="button"

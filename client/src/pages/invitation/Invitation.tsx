@@ -34,7 +34,6 @@ const Invitation = () => {
             type="text"
             id="invitationFirstName"
             className={styles.administrateur__input}
-            placeholder="Prénom"
           />
 
           <label htmlFor="invitationLastName" className={styles.administrateur__label}>
@@ -44,7 +43,6 @@ const Invitation = () => {
             type="text"
             id="invitationLastName"
             className={styles.administrateur__input}
-            placeholder="Nom"
           />
 
           <label htmlFor="invitationCompany" className={styles.administrateur__label}>
@@ -60,9 +58,9 @@ const Invitation = () => {
             Channel Slack
           </label>
           <select id="invitationSlackChannel" className={styles.administrateur__input}>
-            <option value="#general">#general</option>
-            <option value="#random">#random</option>
-            <option value="#team-project">#team-project</option>
+            <option value="#general">#marketing</option>
+            <option value="#random">#dev</option>
+            <option value="#team-project">#sales</option>
           </select>
 
           <label htmlFor="invitationEmail" className={styles.administrateur__label}>
@@ -72,7 +70,6 @@ const Invitation = () => {
             type="email"
             id="invitationEmail"
             className={styles.administrateur__input}
-            placeholder="Email"
           />
 
           <label htmlFor="invitationPassword" className={styles.administrateur__label}>
@@ -88,7 +85,7 @@ const Invitation = () => {
           <button
             type="button"
             onClick={generatePassword}
-            className={styles.administrateur__button}
+            className={`${styles.administrateur__button} ${styles.administrateur__generateButton}`}
           >
             Générer Mot de passe
           </button>

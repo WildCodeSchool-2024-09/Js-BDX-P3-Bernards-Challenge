@@ -1,6 +1,6 @@
 @import '../../App.css';
 
-.administrateur {
+.enterprise {
   margin-top: var(--spacing-large);
   display: flex;
   flex-direction: column;
@@ -8,7 +8,7 @@
   height: calc(100% - var(--spacing-medium));
 }
 
-.administrateur__title {
+.enterprise__title {
   color: var(--secondary-color);
   text-align: center;
   font-size: 7rem;
@@ -17,14 +17,14 @@
   word-wrap: break-word;
 }
 
-.administrateur__description {
+.enterprise__description {
   font-size: 3rem;
   text-align: center;
   margin-bottom: var(--spacing-large);
 }
 
-.administrateur__userManagement,
-.administrateur__addUser {
+.enterprise__userManagement,
+.enterprise__addEnterprise {
   width: 80%;
   margin-bottom: var(--spacing-medium);
   padding: var(--spacing-large);
@@ -34,79 +34,96 @@
   box-shadow: var(--shadow-medium);
 }
 
-.administrateur__sectionTitle {
+.enterprise__sectionTitle {
   font-size: 2.5rem;
   margin-bottom: var(--spacing-medium);
   text-align: center;
 }
 
-.administrateur__table {
+.enterprise__table {
   width: 100%;
   margin-top: var(--spacing-medium);
   border-collapse: collapse;
   text-align: center;
 }
 
-.administrateur__table th,
-.administrateur__table td {
+.enterprise__table th,
+.enterprise__table td {
   padding: var(--spacing-small);
   border: 1px solid var(--primary-color);
 }
 
-.administrateur__table th {
+.enterprise__table th {
   background-color: var(--primary-color);
   color: var(--secondary-color);
 }
 
-.administrateur__table td {
+.enterprise__table td {
   background-color: var(--secondary-color);
   color: var(--text-light);
 }
 
-.administrateur__button {
+.enterprise__button {
   background-color: var(--primary-color);
   color: var(--secondary-color);
-  padding: var(--spacing-small) var(--spacing-medium);
+  padding: var(--spacing-medium) var(--spacing-large);
   border-radius: var(--spacing-small);
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 0.8rem;
 }
 
-.administrateur__button:hover {
-  background-color: var(--secondary-color);
+.enterprise__button:hover {
+  background-color: var(--primary-color);
   color: var(--text-light);
 }
 
-.administrateur__form {
+.enterprise__dropdown-row {
+  display: flex;
+  gap: var(--spacing-medium);
+  justify-content: center;
+  width: 100%;
+}
+
+.enterprise__dropdown,
+.enterprise__select {
+  width: 63%;
+  padding: var(--spacing-small);
+  font-size: 1.6rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+}
+
+.enterprise__form {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-large);
   align-items: center;
 }
 
-.administrateur__inputGroup {
+.enterprise__inputGroup {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-small);
 }
 
-.administrateur__label {
+.enterprise__label {
   font-size: 1.6rem;
   color: var(--text-light);
 }
 
-.administrateur__input {
+.enterprise__input {
   padding: var(--spacing-small);
   font-size: 1.6rem;
   border: 1px solid var(--primary-color);
   border-radius: var(--spacing-small);
-  width: 40%;
+  width: 48%;
 }
 
-.administrateur__submitButton {
+.enterprise__submitButton {
   width: 20%; 
-  height: 5rem; 
-  font-size: 1.6rem; 
+  height: 5rem;
+  font-size: 1.8rem; 
   color: var(--text-light);
   background-color: var(--secondary-color);
   border: 1px solid var(--secondary-color);
@@ -115,6 +132,26 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.administrateur__submitButton:hover {
+.enterprise__submitButton:hover {
   background-color: var(--secondary-color-dark);
+}
+
+.enterprise__addEnterprise, .enterprise__addChannel {
+  width: 80%;
+  margin-top: var(--spacing-large);
+  padding: var(--spacing-large);
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border-radius: var(--spacing-medium);
+  box-shadow: var(--shadow-medium);
+}
+
+.enterprise__selectManager {
+  width: 100%;
+  color: var(--text-dark);
+}
+
+.enterprise__selectChannel {
+  width: 100%;
+  color: var(--text-dark);
 }

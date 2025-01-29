@@ -45,35 +45,49 @@
   margin-bottom: var(--spacing-large);
 }
 
-.home__form {
+.home__inputGroup {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--spacing-medium);
+  flex-direction: column; 
+  width: 45%; 
+}
+
+.home__label {
+  font-size: 1.6rem; 
+  color: var(--text-light); 
+  margin-bottom: var(--spacing-small); 
+  text-align: left;
+  display: block; 
 }
 
 .home__input {
-  width: 45%;
+  width: 48%; 
   padding: var(--spacing-small);
   font-size: 1.6rem;
   border: 1px solid var(--primary-color);
   border-radius: var(--spacing-small);
-  margin-bottom: var(--spacing-small);
+  margin-bottom: 0; 
+}
+
+.home__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-medium); 
 }
 
 .home__forgotPassword {
   font-size: 1.4rem;
   color: var(--accent-color);
   text-decoration: none;
-  margin-bottom: var(--spacing-medium);
   background-color: transparent;
   border: none;
   padding: 0;
+  margin-bottom: var(--spacing-small);
+  cursor: pointer;
 }
 
 .home__forgotPassword:hover {
   text-decoration: underline;
-  background-color: transparent;
 }
 
 .home__button {
@@ -90,5 +104,20 @@
 
 .home__button:hover {
   background-color: var(--secondary-color-dark);
-  color: var(--text-dark);
+}
+
+.home__button {
+  width: 20%; 
+  height: 5rem; 
+  font-size: 1.6rem; 
+  color: var(--text-light);
+  background-color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+  border-radius: var(--spacing-small); 
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.home__button:hover {
+  background-color: var(--secondary-color-dark);
 }

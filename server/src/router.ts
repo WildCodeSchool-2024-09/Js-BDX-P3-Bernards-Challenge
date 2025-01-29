@@ -11,8 +11,8 @@ import enterpriseActions from "./modules/enterprise/enterpriseActions";
 router.get("/api/enterprises", enterpriseActions.browse);
 router.get("/api/enterprises/:id", enterpriseActions.read);
 router.post("/api/enterprises", enterpriseActions.add);
-router.put("/api/enterprises/:id", enterpriseActions.edit); // Route pour la modification
-router.delete("/api/enterprises/:id", enterpriseActions.remove); // Route pour la suppression
+router.put("/api/enterprises/:id", enterpriseActions.edit); 
+router.delete("/api/enterprises/:id", enterpriseActions.remove); 
 
 /* ************************************************************************* */
 

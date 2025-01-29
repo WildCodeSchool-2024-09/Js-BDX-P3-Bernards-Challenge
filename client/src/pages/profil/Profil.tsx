@@ -18,7 +18,6 @@ const Profil = () => {
             type="text"
             id="firstName"
             className={styles.profil__input}
-            placeholder="Prénom"
           />
 
           <label htmlFor="lastName" className={styles.profil__label}>Nom</label>
@@ -26,7 +25,6 @@ const Profil = () => {
             type="text"
             id="lastName"
             className={styles.profil__input}
-            placeholder="Nom"
           />
 
           <label htmlFor="email" className={styles.profil__label}>Email</label>
@@ -34,7 +32,6 @@ const Profil = () => {
             type="email"
             id="email"
             className={styles.profil__input}
-            placeholder="Email"
           />
 
           <label htmlFor="password" className={styles.profil__label}>Mot de passe</label>
@@ -42,7 +39,6 @@ const Profil = () => {
             type="password"
             id="password"
             className={styles.profil__input}
-            placeholder="Mot de passe"
           />
 
           <button type="submit" className={styles.profil__submitButton}>Sauvegarder</button>

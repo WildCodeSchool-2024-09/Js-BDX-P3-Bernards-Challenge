@@ -41,7 +41,12 @@
   align-items: center;
 }
 
-.navbar__links li a {
+.navbar__links li {
+  margin: var(--spacing-small) 0;
+  width: 100%;
+}
+
+.navbar__link {
   display: block;
   padding: var(--spacing-medium) var(--spacing-large);
   color: var(--primary-color);
@@ -56,14 +61,12 @@
   box-sizing: border-box;
 }
 
-.navbar__links li {
-  margin: var(--spacing-small) 0;
-  width: 100%;
-}
-
-.navbar__links li a:hover {
+/* Styles identiques pour l'hover et l'état actif */
+.navbar__link:hover,
+.navbar__linkActive {
   background-color: transparent;
   color: var(--secondary-color);
+  text-decoration: none;
 }
 
 .navbar__footerContainer {

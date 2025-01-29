@@ -48,7 +48,7 @@
 
 .administrateur__label {
   font-size: 1.6rem;
-  color: var(--secondary-color);
+  color: var(--text-light);
 }
 
 .administrateur__input {
@@ -56,7 +56,7 @@
   font-size: 1.6rem;
   border: 1px solid var(--primary-color);
   border-radius: var(--spacing-small);
-  width: 40%;
+  width: 63%;
 }
 
 .administrateur__inputGroup {
@@ -66,37 +66,40 @@
 }
 
 .administrateur__inputGroup .administrateur__input {
-  width: 48%;
+  width: 63%;
 }
 
 .administrateur__submitButton {
-  width: 15%;
-  padding: var(--spacing-small) var(--spacing-medium);
-  font-size: 1.6rem;
+  width: 20%; 
+  height: 5rem; 
+  font-size: 1.6rem; 
   color: var(--text-light);
   background-color: var(--secondary-color);
   border: 1px solid var(--secondary-color);
-  border-radius: var(--spacing-small);
+  border-radius: var(--spacing-small); 
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
-  align-self: center;
 }
 
 .administrateur__submitButton:hover {
   background-color: var(--secondary-color-dark);
-  color: var(--text-dark);
 }
 
 .administrateur__button {
   background-color: var(--primary-color);
   color: var(--secondary-color);
   padding: var(--spacing-small) var(--spacing-medium);
+  font-size: 1.3rem;
   border-radius: var(--spacing-small);
   cursor: pointer;
   transition: background-color 0.3s ease;
+  width: 20%;
 }
 
 .administrateur__button:hover {
-  background-color: var(--secondary-color);
   color: var(--text-light);
+}
+
+.administrateur__generateButton {
+  width: 20%; 
 }

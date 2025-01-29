@@ -29,39 +29,37 @@
   margin-bottom: var(--spacing-medium);
   padding: var(--spacing-medium);
   border: 1px solid var(--primary-color);
-  border-radius: 16px;
+  border-radius: 1rem;
   text-align: center;
   background-color: var(--primary-color);
   color: var(--secondary-color);
   box-shadow: var(--shadow-light);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .result__section:hover {
   box-shadow: var(--shadow-medium);
-  transform: translateY(-3px);
 }
 
 .result__form {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
   gap: var(--spacing-medium);
 }
 
 .result__dropdown-row {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
 }
 
 .result__dropdown {
-  width: 45%;
-  padding: 0.5rem;
-  font-size: 1.6rem;
+  margin: 1.2rem;
+  padding: 1rem;
+  font-size: 1.2rem;
   border: 1px solid var(--primary-color);
-  border-radius: 8px;
-  margin-right: var(--spacing-medium);
+  border-radius: 0.5rem;
 }
 
 .result__dropdown:last-child {
@@ -88,67 +86,9 @@
 
 .result__table td {
   background-color: var(--secondary-color);
-  color: var(--text-dark);
+  color: var(--text-light);
 }
 
 .result__table tr:hover {
   background-color: var(--primary-color);
-}
-
-footer {
-  grid-column: -2 / -1;
-  grid-row: 1;
-  align-self: end;
-  text-align: right;
-}
-
-.section__title {
-  font-size: 2.5rem;
-  margin-bottom: var(--spacing-large);
-}
-
-/* Section spécifique à l'affichage du titre */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-primary);
-}
-
-a {
-  color: var(--secondary-color);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-.btn {
-  display: inline-block;
-  padding: var(--spacing-small) var(--spacing-medium);
-  background-color: var(--secondary-color);
-  color: var(--text-light);
-  border: none;
-  border-radius: 4px;
-  box-shadow: var(--shadow-light);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-medium);
-}
-
-body {
-  font-family: var(--font-primary);
-  background-color: var(--background-light);
-  color: var(--primary-color);
-}
-
-body.light-mode {
-  background-color: var(--background-light);
-  color: var(--primary-color);
-}
-
-body.dark-mode {
-  background-color: var(--background-dark);
-  color: var(--text-light);
 }

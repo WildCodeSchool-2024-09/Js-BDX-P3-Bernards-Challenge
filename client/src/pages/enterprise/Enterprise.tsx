@@ -1,0 +1,134 @@
+import styles from "./Enterprise.module.css";
+
+const Enterprise = () => {
+  return (
+    <section className={styles.enterprise}>
+      <hgroup>
+        <h1 className={styles.enterprise__title}>Gestion des Entreprises</h1>
+        <p className={styles.enterprise__description}>Consultez et gérez les informations des entreprises et des managers partenaires.</p>
+      </hgroup>
+      <section className={styles.enterprise__userManagement}>
+        <hgroup>
+        </hgroup>
+        <table className={styles.enterprise__table}>
+          <thead>
+            <tr>
+              <th>Entreprise</th>
+              <th>Manager</th>
+              <th>Channel Slack</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Entreprise 1</td>
+              <td>
+                <select className={`${styles.enterprise__input} ${styles.enterprise__selectManager}`}>
+                  <option value="Geoffrey">Geoffrey</option>
+                  <option value="Raph">Raph</option>
+                  <option value="Mathieu">Mathieu</option>
+                </select>
+              </td>
+              <td>
+                <select className={`${styles.enterprise__input} ${styles.enterprise__selectChannel}`}>
+                  <option value="marketing">marketing</option>
+                  <option value="dev">dev</option>
+                  <option value="sales">sales</option>
+                </select>
+              </td>
+              <td>
+                <button type="button" className={styles.enterprise__button}>
+                  Révoquer les droits
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>Entreprise 2</td>
+              <td>
+                <select className={`${styles.enterprise__input} ${styles.enterprise__selectManager}`}>
+                  <option value="Geoffrey">Geoffrey</option>
+                  <option value="Raph">Raph</option>
+                  <option value="Mathieu">Mathieu</option>
+                </select>
+              </td>
+              <td>
+                <select className={`${styles.enterprise__input} ${styles.enterprise__selectChannel}`}>
+                  <option value="dev">dev</option>
+                  <option value="marketing">marketing</option>
+                  <option value="support">support</option>
+                </select>
+              </td>
+              <td>
+                <button type="button" className={styles.enterprise__button}>
+                  Révoquer les droits
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section className={styles.enterprise__addEnterprise}>
+        <hgroup>
+          <h2 className={styles.enterprise__sectionTitle}>Ajouter une nouvelle entreprise</h2>
+        </hgroup>
+        <form className={styles.enterprise__form}>
+          <label htmlFor="newEnterpriseName" className={styles.enterprise__label}>
+            Nom de l'entreprise
+          </label>
+          <input
+            type="text"
+            id="newEnterpriseName"
+            className={styles.enterprise__input}
+          />
+
+          <label htmlFor="newEnterpriseToken" className={styles.enterprise__label}>
+            Token Slack
+          </label>
+          <input
+            type="text"
+            id="newEnterpriseToken"
+            className={styles.enterprise__input}
+          />
+
+          <button type="submit" className={styles.enterprise__submitButton}>
+            Ajouter
+          </button>
+        </form>
+      </section>
+
+      <section className={styles.enterprise__addChannel}>
+        <hgroup>
+          <h2 className={styles.enterprise__sectionTitle}>Ajouter un nouveau channel</h2>
+        </hgroup>
+        <form className={styles.enterprise__form}>
+          <label htmlFor="newChannelEnterprise" className={styles.enterprise__label}>
+            Nom de l'entreprise
+          </label>
+          <select
+            id="newChannelEnterprise"
+            className={styles.enterprise__input}
+          >
+            <option value="Entreprise 1">Entreprise 1</option>
+            <option value="Entreprise 2">Entreprise 2</option>
+          </select>
+
+          <label htmlFor="newChannelId" className={styles.enterprise__label}>
+            ID du Channel Slack
+          </label>
+          <input
+            type="text"
+            id="newChannelId"
+            className={styles.enterprise__input}
+          />
+
+          <button type="submit" className={styles.enterprise__submitButton}>
+            Ajouter le Channel
+          </button>
+        </form>
+      </section>
+    </section>
+  );
+};
+
+export default Enterprise;

@@ -2,7 +2,7 @@ import styles from "./Home.module.css";
 
 const Home = () => {
   const handleForgotPassword = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault(); 
+    e.preventDefault();
   };
 
   return (
@@ -18,15 +18,22 @@ const Home = () => {
         </hgroup>
 
         <form className={styles.home__form}>
+          <p>
+            <label htmlFor="email" className={styles.home__label}>Email</label>
+          </p>
           <input
+            id="email"
             type="email"
-            placeholder="Email"
             className={styles.home__input}
             required
           />
+
+          <p>
+            <label htmlFor="password" className={styles.home__label}>Mot de passe</label>
+          </p>
           <input
+            id="password"
             type="password"
-            placeholder="Mot de passe"
             className={styles.home__input}
             required
           />

@@ -89,7 +89,7 @@ class AdminRepository {
         `UPDATE user u
         INNER JOIN application_user au ON u.id = au.user_id
         INNER JOIN administrators a ON a.application_user_id = au.id
-        SET u.email = ?, u.first_name = ?, u.last_name, au.password = ?
+        SET u.email = ?, u.first_name = ?, u.last_name = ?, au.password = ?
         WHERE a.id = ?`,
         [
           admin.email,

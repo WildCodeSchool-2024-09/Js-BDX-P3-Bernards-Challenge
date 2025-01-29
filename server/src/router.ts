@@ -23,4 +23,9 @@ router.delete("/api/quizz/:id", quizzActions.destroy);
 
 /* ************************************************************************* */
 
+import resultAction from "./modules/results/resultAction";
+
+router.get("api/result", resultAction.browse);
+router.get("api/result/:id", resultAction.read);
+
 export default router;

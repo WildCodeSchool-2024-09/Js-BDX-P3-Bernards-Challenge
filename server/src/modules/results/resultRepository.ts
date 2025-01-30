@@ -1,6 +1,6 @@
 import databaseClient from "../../../database/client";
 
-import type { Result, Rows } from "../../../database/client";
+import type { Rows } from "../../../database/client";
 
 class resultRepository {
   async read(id: number) {

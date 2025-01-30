@@ -25,16 +25,6 @@ import authActions from "./modules/auth/authActions";
 router.post("/api/login", authActions.login);
 router.use(authActions.verifyToken);
 
-// import authActions from "./modules/auth/authActions";
-
-// router.post("/api/login", authActions.login);
-
-// router.post(
-//   "/api/users",
-//   authActions.hashPassword,
-//   application_userActions.add,
-// );
-
 /* ************************************************************************* */
 
 export default router;

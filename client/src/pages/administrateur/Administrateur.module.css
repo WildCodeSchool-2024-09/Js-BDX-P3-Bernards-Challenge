@@ -1,6 +1,6 @@
 @import '../../App.css';
 
-.administrateur {
+.administrator {
   margin-top: var(--spacing-large);
   display: flex;
   flex-direction: column;
@@ -8,7 +8,7 @@
   height: calc(100% - var(--spacing-medium));
 }
 
-.administrateur__title {
+.administrator__title {
   color: var(--secondary-color);
   text-align: center;
   font-size: 7rem;
@@ -17,14 +17,14 @@
   word-wrap: break-word;
 }
 
-.administrateur__description {
+.administrator__description {
   font-size: 3rem;
   text-align: center;
   margin-bottom: var(--spacing-large);
 }
 
-.administrateur__userManagement,
-.administrateur__addUser {
+.administrator__userManagement,
+.administrator__addUser {
   width: 80%;
   margin-bottom: var(--spacing-medium);
   padding: var(--spacing-large);
@@ -34,36 +34,36 @@
   box-shadow: var(--shadow-medium);
 }
 
-.administrateur__sectionTitle {
+.administrator__sectionTitle {
   font-size: 2.5rem;
   margin-bottom: var(--spacing-medium);
   text-align: center;
 }
 
-.administrateur__table {
+.administrator__table {
   width: 100%;
   margin-top: var(--spacing-medium);
   border-collapse: collapse;
   text-align: center;
 }
 
-.administrateur__table th,
-.administrateur__table td {
+.administrator__table th,
+.administrator__table td {
   padding: var(--spacing-small);
   border: 1px solid var(--primary-color);
 }
 
-.administrateur__table th {
+.administrator__table th {
   background-color: var(--primary-color);
   color: var(--secondary-color);
 }
 
-.administrateur__table td {
+.administrator__table td {
   background-color: var(--secondary-color);
   color: var(--text-light);
 }
 
-.administrateur__button {
+.administrator__button {
   background-color: var(--primary-color);
   color: var(--secondary-color);
   padding: var(--spacing-small) var(--spacing-medium);
@@ -72,30 +72,30 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.administrateur__button:hover {
+.administrator__button:hover {
   background-color: var(--secondary-color);
   color: var(--text-light);
 }
 
-.administrateur__form {
+.administrator__form {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-large);
   align-items: center;
 }
 
-.administrateur__inputGroup {
+.administrator__inputGroup {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-small);
 }
 
-.administrateur__label {
+.administrator__label {
   font-size: 1.6rem;
   color: var(--text-light);
 }
 
-.administrateur__input {
+.administrator__input {
   padding: var(--spacing-small);
   font-size: 1.6rem;
   border: 1px solid var(--primary-color);
@@ -103,7 +103,7 @@
   width: 40%;
 }
 
-.administrateur__submitButton {
+.administrator__submitButton {
   width: 20%; 
   height: 5rem; 
   font-size: 1.6rem; 
@@ -115,6 +115,6 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.administrateur__submitButton:hover {
+.administrator__submitButton:hover {
   background-color: var(--secondary-color-dark);
 }

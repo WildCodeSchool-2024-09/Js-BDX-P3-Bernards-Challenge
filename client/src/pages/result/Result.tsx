@@ -10,7 +10,6 @@ const Result = () => {
         <h2 className={styles.section__title}>Filtres des résultats</h2>
         <form className={styles.result__form}>
           <fieldset className={styles.result__dropdownRow}>
-            {/* Suppression de la balise <legend> pour ne pas afficher "Sélectionner les filtres" */}
             <select className={styles.result__dropdown}>
               <option value="select">Entreprise</option>
               <option value="exemple">Entreprise 1</option>

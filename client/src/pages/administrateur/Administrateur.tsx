@@ -1,27 +1,27 @@
 import { useState } from "react";
-import styles from "./Administrateur.module.css";
+import styles from "./Administrator.module.css";
 
-const Administrateur = () => {
-  const [message, setMessage] = useState(""); // ✅ Défini correctement
+const Administrator = () => {
+  const [message, setMessage] = useState("");
 
   const handleRevoke = (email: string) => {
-    setMessage(`Les droits de ${email} ont été révoqués.`);
+    setMessage(`The rights of ${email} have been revoked.`);
   };
 
   return (
-    <section className={styles.administrateur}>
-      <h1 className={styles.administrateur__title}>Gestion des Administrateurs</h1>
-      <p className={styles.administrateur__description}>
-        Consultez et modifiez les administrateurs existants.
+    <section className={styles.administrator}>
+      <h1 className={styles.administrator__title}>Administrator Management</h1>
+      <p className={styles.administrator__description}>
+        View and edit existing administrators.
       </p>
 
-      {message && <p className={styles.administrateur__message}>{message}</p>}
+      {message && <p className={styles.administrator__message}>{message}</p>}
 
-      <section className={styles.administrateur__userManagement}>
-        <table className={styles.administrateur__table}>
+      <section className={styles.administrator__userManagement}>
+        <table className={styles.administrator__table}>
           <thead>
             <tr>
-              <th>Prénom</th>
+              <th>First Name</th>
               <th>Email</th>
               <th>Actions</th>
             </tr>
@@ -37,10 +37,10 @@ const Administrateur = () => {
                 <td>
                   <button
                     type="button"
-                    className={styles.administrateur__button}
+                    className={styles.administrator__button}
                     onClick={() => handleRevoke(admin.email)}
                   >
-                    Révoquer les droits
+                    Revoke Rights
                   </button>
                 </td>
               </tr>
@@ -49,41 +49,41 @@ const Administrateur = () => {
         </table>
       </section>
 
-      <h2 className={styles.administrateur__sectionTitle}>
-        Ajouter un nouvel administrateur
+      <h2 className={styles.administrator__sectionTitle}>
+        Add a New Administrator
       </h2>
 
-      <section className={styles.administrateur__addUser}>
-        <form className={styles.administrateur__form}>
-          <label htmlFor="firstname" className={styles.administrateur__label}>
-            Prénom
+      <section className={styles.administrator__addUser}>
+        <form className={styles.administrator__form}>
+          <label htmlFor="firstname" className={styles.administrator__label}>
+            First Name
           </label>
           <input
             type="text"
             id="firstname"
-            className={styles.administrateur__input}
+            className={styles.administrator__input}
           />
 
-          <label htmlFor="lastname" className={styles.administrateur__label}>
-            Nom
+          <label htmlFor="lastname" className={styles.administrator__label}>
+            Last Name
           </label>
           <input
             type="text"
             id="lastname"
-            className={styles.administrateur__input}
+            className={styles.administrator__input}
           />
 
-          <label htmlFor="email" className={styles.administrateur__label}>
+          <label htmlFor="email" className={styles.administrator__label}>
             Email
           </label>
           <input
             type="email"
             id="email"
-            className={styles.administrateur__input}
+            className={styles.administrator__input}
           />
 
-          <button type="submit" className={styles.administrateur__submitButton}>
-            Ajouter
+          <button type="submit" className={styles.administrator__submitButton}>
+            Add
           </button>
         </form>
       </section>
@@ -91,4 +91,4 @@ const Administrateur = () => {
   );
 };
 
-export default Administrateur;
+export default Administrator;

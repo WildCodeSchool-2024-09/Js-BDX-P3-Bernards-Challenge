@@ -45,11 +45,13 @@
 }
 
 .dropdown {
-  width: 48%;
+  width: 100%; /* Par défaut, prend toute la largeur du parent */
+  max-width: 48%; /* Limite la largeur maximale sur les grands écrans */
   padding: 0.5rem;
   font-size: 1.6rem;
   border: 1px solid var(--primary-color);
   border-radius: 0.5rem;
+  box-sizing: border-box; /* Assure que padding et border ne dépassent pas la largeur */
 }
 
 .list {

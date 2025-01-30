@@ -7,17 +7,13 @@ const Transmission = () => {
 
   return (
     <section className={styles.transmission}>
-      <hgroup>
-        <h1 className={styles.transmission__title}>Diffusion</h1>
-        <p className={styles.transmission__description}>
-          Gestion des transmissions de données
-        </p>
-      </hgroup>
+      <h1 className={styles.transmission__title}>Diffusion</h1>
+      <p className={styles.transmission__description}>
+        Gestion des transmissions de données
+      </p>
 
       <section className={`${styles.section} ${styles["section--enterprises"]}`}>
-        <hgroup>
-          <h2 className={styles.section__title}>Liste des Entreprises</h2>
-        </hgroup>
+        <h2 className={styles.section__title}>Liste des Entreprises</h2>
         <select className={styles.dropdown}>
           <option>Entreprise 1</option>
           <option>Entreprise 2</option>
@@ -26,9 +22,7 @@ const Transmission = () => {
       </section>
 
       <section className={`${styles.section} ${styles["section--channels"]}`}>
-        <hgroup>
-          <h2 className={styles.section__title}>Liste des Channels Slack</h2>
-        </hgroup>
+        <h2 className={styles.section__title}>Liste des Channels Slack</h2>
         <select className={styles.dropdown}>
           <option>marketing</option>
           <option>dev</option>
@@ -37,9 +31,7 @@ const Transmission = () => {
       </section>
 
       <section className={`${styles.section} ${styles["section--quiz"]}`}>
-        <hgroup>
-          <h2 className={styles.section__title}>Choix du Quiz</h2>
-        </hgroup>
+        <h2 className={styles.section__title}>Choix du Quiz</h2>
         <select className={styles.dropdown}>
           <option>Quiz 1</option>
           <option>Quiz 2</option>
@@ -47,11 +39,8 @@ const Transmission = () => {
         </select>
       </section>
 
-      {/* Encadrement du bouton avec une section */}
       <section className={`${styles.section} ${styles["section--send"]}`}>
-        <hgroup>
-          <h2 className={styles.section__title}>Envoyer sur Slack</h2>
-        </hgroup>
+        <h2 className={styles.section__title}>Envoyer sur Slack</h2>
         <button
           type="button"
           className={styles.transmission__slackButton}

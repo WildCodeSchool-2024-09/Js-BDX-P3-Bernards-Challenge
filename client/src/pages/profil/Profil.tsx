@@ -3,15 +3,12 @@ import styles from "./Profil.module.css";
 const Profil = () => {
   return (
     <section className={styles.profil}>
-      <hgroup>
-        <h1 className={styles.profil__title}>Profil</h1>
-        <p className={styles.profil__description}>Gestion de votre profil</p>
-      </hgroup>
+      <h1 className={styles.profil__title}>Profil</h1>
+      <p className={styles.profil__description}>Gestion de votre profil</p>
 
       <section className={styles.profil__formSection}>
-        <hgroup>
-          <h2 className={styles.profil__sectionTitle}>Modifier mon profil</h2>
-        </hgroup>
+        <h2 className={styles.profil__sectionTitle}>Modifier mon profil</h2>
+
         <form className={styles.profil__form}>
           <label htmlFor="firstName" className={styles.profil__label}>Prénom</label>
           <input

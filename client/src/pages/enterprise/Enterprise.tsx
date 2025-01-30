@@ -3,20 +3,18 @@ import styles from "./Enterprise.module.css";
 const Enterprise = () => {
   return (
     <section className={styles.enterprise}>
-      <hgroup>
-        <h1 className={styles.enterprise__title}>Gestion des Entreprises</h1>
-        <p className={styles.enterprise__description}>Consultez et gérez les informations des entreprises et des managers partenaires.</p>
-      </hgroup>
+      <h1 className={styles.enterprise__title}>Gestion des Entreprises</h1>
+      <p className={styles.enterprise__description}>
+        Consultez et gérez les informations des entreprises et des managers partenaires.
+      </p>
+
       <section className={styles.enterprise__userManagement}>
-        <hgroup>
-        </hgroup>
         <table className={styles.enterprise__table}>
           <thead>
             <tr>
               <th>Entreprise</th>
               <th>Manager</th>
               <th>Channel Slack</th>
-              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -36,11 +34,6 @@ const Enterprise = () => {
                   <option value="sales">sales</option>
                 </select>
               </td>
-              <td>
-                <button type="button" className={styles.enterprise__button}>
-                  Révoquer les droits
-                </button>
-              </td>
             </tr>
             <tr>
               <td>Entreprise 2</td>
@@ -58,20 +51,13 @@ const Enterprise = () => {
                   <option value="support">support</option>
                 </select>
               </td>
-              <td>
-                <button type="button" className={styles.enterprise__button}>
-                  Révoquer les droits
-                </button>
-              </td>
             </tr>
           </tbody>
         </table>
       </section>
 
       <section className={styles.enterprise__addEnterprise}>
-        <hgroup>
-          <h2 className={styles.enterprise__sectionTitle}>Ajouter une nouvelle entreprise</h2>
-        </hgroup>
+        <h2 className={styles.enterprise__sectionTitle}>Ajouter une nouvelle entreprise</h2>
         <form className={styles.enterprise__form}>
           <label htmlFor="newEnterpriseName" className={styles.enterprise__label}>
             Nom de l'entreprise
@@ -98,9 +84,7 @@ const Enterprise = () => {
       </section>
 
       <section className={styles.enterprise__addChannel}>
-        <hgroup>
-          <h2 className={styles.enterprise__sectionTitle}>Ajouter un nouveau channel</h2>
-        </hgroup>
+        <h2 className={styles.enterprise__sectionTitle}>Ajouter un nouveau channel</h2>
         <form className={styles.enterprise__form}>
           <label htmlFor="newChannelEnterprise" className={styles.enterprise__label}>
             Nom de l'entreprise

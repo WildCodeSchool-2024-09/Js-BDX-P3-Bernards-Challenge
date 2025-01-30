@@ -3,15 +3,11 @@ import styles from "./Quizz.module.css";
 const Quizz = () => {
   return (
     <section className={styles.quizz}>
-      <hgroup>
-        <h1 className={styles.quizz__title}>Quizz</h1>
-        <p className={styles.quizz__description}>Gestion des quizz</p>
-      </hgroup>
+      <h1 className={styles.quizz__title}>Quizz</h1>
+      <p className={styles.quizz__description}>Gestion des quizz</p>
 
       <section className={styles.quizz__section}>
-        <hgroup>
-          <h2 className={styles.section__title}>Créer ou Sélectionner un Quizz</h2>
-        </hgroup>
+        <h2 className={styles.section__title}>Créer ou Sélectionner un Quizz</h2>
 
         <form className={styles.quizz__form}>
           <label htmlFor="quizType" className={styles.quizz__label}>
@@ -36,27 +32,6 @@ const Quizz = () => {
             Titre du Quizz
           </label>
           <input type="text" id="quizTitle" className={styles.quizz__titleInput} />
-
-          <label htmlFor="questionTitle" className={styles.quizz__label}>
-            Titre de la Question
-          </label>
-          <input type="text" id="questionTitle" className={styles.quizz__questionTitleInput} />
-
-          <label htmlFor="quizQuestion" className={styles.quizz__label}>
-            Question
-          </label>
-          <input type="text" id="quizQuestion" className={styles.quizz__textarea} />
-
-          <label htmlFor="mediaUpload" className={styles.quizz__label}>
-            Ajouter du contenu multimédia
-          </label>
-          <input
-            type="file"
-            id="mediaUpload"
-            accept="image/*,video/*,audio/*"
-            className={styles.quizz__dropdown}
-            aria-label="Ajouter du contenu multimédia"
-          />
 
           <label htmlFor="answer1" className={styles.quizz__label}>Réponse 1</label>
           <input type="text" id="answer1" className={styles.quizz__answer} />

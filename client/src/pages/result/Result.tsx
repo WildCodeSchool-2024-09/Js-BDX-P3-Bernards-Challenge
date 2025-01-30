@@ -3,17 +3,14 @@ import styles from "./Result.module.css";
 const Result = () => {
   return (
     <section className={styles.result}>
-      <hgroup>
-        <h1 className={styles.result__title}>Résultats</h1>
-        <p className={styles.result__description}>Affichage des résultats des quizz</p>
-      </hgroup>
+      <h1 className={styles.result__title}>Résultats</h1>
+      <p className={styles.result__description}>Affichage des résultats des quizz</p>
 
       <section className={styles.result__section}>
-        <hgroup>
-          <h2 className={styles.section__title}>Filtres des résultats</h2>
-        </hgroup>
+        <h2 className={styles.section__title}>Filtres des résultats</h2>
         <form className={styles.result__form}>
-          <section className={styles.result__dropdownRow}>
+          <fieldset className={styles.result__dropdownRow}>
+            {/* Suppression de la balise <legend> pour ne pas afficher "Sélectionner les filtres" */}
             <select className={styles.result__dropdown}>
               <option value="select">Entreprise</option>
               <option value="exemple">Entreprise 1</option>
@@ -35,13 +32,12 @@ const Result = () => {
               <option value="q2">Question 2</option>
               <option value="q3">Question 3</option>
             </select>
-          </section>
+          </fieldset>
         </form>
       </section>
+
       <section className={styles.result__section}>
-        <hgroup>
-          <h2 className={styles.section__title}>Résultats</h2>
-        </hgroup>
+        <h2 className={styles.section__title}>Résultats</h2>
         
         <table className={styles.result__table}>
           <thead>

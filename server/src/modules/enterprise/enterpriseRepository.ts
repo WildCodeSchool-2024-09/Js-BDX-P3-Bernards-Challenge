@@ -43,33 +43,16 @@ class EnterpriseRepository {
   }
 
   async delete(id: number) {
-    const connection = await databaseClient.getConnection();
-    try {
-      await connection.beginTransaction();
+    const [result] = await databaseClient.query<Result>(
+      "DELETE FROM enterprise WHERE id = ?",
+      [id]
+    );
 
-      const [deleteChannelsResult] = await connection.query<Result>(
-        "DELETE FROM channel_slack WHERE entreprise_id = ?",
-        [id]
-      );
-      if (deleteChannelsResult.affectedRows === 0) {
-        throw new Error(`Aucune ligne supprimée pour les channels Slack de l'entreprise avec l'ID ${id}`);
-      }
-
-      const [deleteEnterpriseResult] = await connection.query<Result>(
-        "DELETE FROM enterprise WHERE id = ?",
-        [id]
-      );
-      if (deleteEnterpriseResult.affectedRows === 0) {
-        throw new Error(`Aucune ligne supprimée pour l'entreprise avec l'ID ${id}`);
-      }
-
-      await connection.commit();
-    } catch (error) {
-      await connection.rollback();
-      throw error;
-    } finally {
-      connection.release();
+    if (result.affectedRows === 0) {
+      throw new Error(`Aucune entreprise supprimée avec l'ID ${id}`);
     }
+
+    return result.affectedRows;
   }
 }
 

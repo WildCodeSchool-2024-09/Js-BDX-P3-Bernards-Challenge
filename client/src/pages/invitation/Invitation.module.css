@@ -1,6 +1,6 @@
 @import '../../App.css';
 
-.administrateur {
+.admin {
   margin-top: var(--spacing-large);
   display: flex;
   flex-direction: column;
@@ -8,7 +8,7 @@
   height: calc(100% - var(--spacing-medium));
 }
 
-.administrateur__title {
+.admin__title {
   color: var(--secondary-color);
   text-align: center;
   font-size: 7rem;
@@ -17,13 +17,13 @@
   word-wrap: break-word;
 }
 
-.administrateur__description {
+.admin__description {
   font-size: 3rem;
   text-align: center;
   margin-bottom: var(--spacing-large);
 }
 
-.administrateur__addUser {
+.admin__addUser {
   width: 80%;
   margin-top: var(--spacing-large);
   padding: var(--spacing-large);
@@ -33,25 +33,25 @@
   box-shadow: var(--shadow-medium);
 }
 
-.administrateur__sectionTitle {
+.admin__sectionTitle {
   font-size: 2.5rem;
   margin-bottom: var(--spacing-medium);
   text-align: center;
 }
 
-.administrateur__form {
+.admin__form {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-medium);
   align-items: center;
 }
 
-.administrateur__label {
+.admin__label {
   font-size: 1.6rem;
   color: var(--text-light);
 }
 
-.administrateur__input {
+.admin__input {
   padding: var(--spacing-small);
   font-size: 1.6rem;
   border: 1px solid var(--primary-color);
@@ -59,17 +59,17 @@
   width: 63%;
 }
 
-.administrateur__inputGroup {
+.admin__inputGroup {
   display: flex;
   justify-content: space-between;
   gap: var(--spacing-small);
 }
 
-.administrateur__inputGroup .administrateur__input {
+.admin__inputGroup .admin__input {
   width: 63%;
 }
 
-.administrateur__submitButton {
+.admin__submitButton {
   width: 20%; 
   height: 5rem; 
   font-size: 1.6rem; 
@@ -81,11 +81,11 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.administrateur__submitButton:hover {
+.admin__submitButton:hover {
   background-color: var(--secondary-color-dark);
 }
 
-.administrateur__button {
+.admin__button {
   background-color: var(--primary-color);
   color: var(--secondary-color);
   padding: var(--spacing-small) var(--spacing-medium);
@@ -96,10 +96,10 @@
   width: 20%;
 }
 
-.administrateur__button:hover {
+.admin__button:hover {
   color: var(--text-light);
 }
 
-.administrateur__generateButton {
+.admin__generateButton {
   width: 20%; 
 }

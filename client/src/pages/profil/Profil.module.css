@@ -11,7 +11,9 @@
 .profil__title {
   color: var(--secondary-color);
   text-align: center;
-  font-size: 7rem;
+  font-size: 6rem; 
+  margin-bottom: 5rem;
+  margin-top: 1rem;
   white-space: normal;
   word-wrap: break-word;
 }
@@ -71,4 +73,49 @@
 
 .profil__submitButton:hover {
   background-color: var(--secondary-color-dark);
+}
+
+@media screen and (max-width: 800px) {
+  .profil {
+    margin-top: var(--spacing-medium);
+    height: auto;
+  }
+
+  .profil__title {
+    font-size: 2.5rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+
+  .profil__description {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-medium);
+  }
+
+  .profil__formSection {
+    padding: var(--spacing-medium);
+  }
+
+  .profil__sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .profil__form {
+    gap: var(--spacing-small);
+  }
+
+  .profil__input {
+    width: 100%;
+  }
+
+  .profil__submitButton {
+    width: 50%;
+    height: 4rem;
+    font-size: 1.4rem;
+  }
+
+  .profil__label {
+    font-size: 1.2rem;
+    margin: 1rem;
+  }
 }

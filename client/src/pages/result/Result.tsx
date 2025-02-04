@@ -4,7 +4,6 @@ const Result = () => {
   return (
     <section className={styles.result}>
       <h1 className={styles.result__title}>Résultats</h1>
-      <p className={styles.result__description}>Affichage des résultats des quizz</p>
 
       <section className={styles.result__section}>
         <h2 className={styles.section__title}>Filtres des résultats</h2>

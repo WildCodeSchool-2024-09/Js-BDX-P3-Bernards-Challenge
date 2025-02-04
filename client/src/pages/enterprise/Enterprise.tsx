@@ -3,10 +3,7 @@ import styles from "./Enterprise.module.css";
 const Enterprise = () => {
   return (
     <section className={styles.enterprise}>
-      <h1 className={styles.enterprise__title}>Gestion des Entreprises</h1>
-      <p className={styles.enterprise__description}>
-        Consultez et gérez les informations des entreprises et des managers partenaires.
-      </p>
+      <h1 className={styles.enterprise__title}>Entreprise</h1>
 
       <section className={styles.enterprise__userManagement}>
         <table className={styles.enterprise__table}>
@@ -21,14 +18,14 @@ const Enterprise = () => {
             <tr>
               <td>Entreprise 1</td>
               <td>
-                <select className={`${styles.enterprise__input} ${styles.enterprise__selectManager}`}>
+                <select className={`${styles.enterprise__dropdowntop}`}>
                   <option value="Geoffrey">Geoffrey</option>
                   <option value="Raph">Raph</option>
                   <option value="Mathieu">Mathieu</option>
                 </select>
               </td>
               <td>
-                <select className={`${styles.enterprise__input} ${styles.enterprise__selectChannel}`}>
+              <select className={`${styles.enterprise__dropdowntop}`}>
                   <option value="marketing">marketing</option>
                   <option value="dev">dev</option>
                   <option value="sales">sales</option>
@@ -38,14 +35,14 @@ const Enterprise = () => {
             <tr>
               <td>Entreprise 2</td>
               <td>
-                <select className={`${styles.enterprise__input} ${styles.enterprise__selectManager}`}>
+              <select className={`${styles.enterprise__dropdowntop}`}>
                   <option value="Geoffrey">Geoffrey</option>
                   <option value="Raph">Raph</option>
                   <option value="Mathieu">Mathieu</option>
                 </select>
               </td>
               <td>
-                <select className={`${styles.enterprise__input} ${styles.enterprise__selectChannel}`}>
+              <select className={`${styles.enterprise__dropdowntop}`}>
                   <option value="dev">dev</option>
                   <option value="marketing">marketing</option>
                   <option value="support">support</option>
@@ -57,7 +54,7 @@ const Enterprise = () => {
       </section>
 
       <section className={styles.enterprise__addEnterprise}>
-        <h2 className={styles.enterprise__sectionTitle}>Ajouter une nouvelle entreprise</h2>
+      <h2 className={styles.enterprise__sectionTitle}>Ajouter une nouvelle entreprise</h2>
         <form className={styles.enterprise__form}>
           <label htmlFor="newEnterpriseName" className={styles.enterprise__label}>
             Nom de l'entreprise
@@ -84,14 +81,14 @@ const Enterprise = () => {
       </section>
 
       <section className={styles.enterprise__addChannel}>
-        <h2 className={styles.enterprise__sectionTitle}>Ajouter un nouveau channel</h2>
+      <h2 className={styles.enterprise__sectionTitle}>Ajouter un nouveau channel</h2>
         <form className={styles.enterprise__form}>
           <label htmlFor="newChannelEnterprise" className={styles.enterprise__label}>
             Nom de l'entreprise
           </label>
           <select
             id="newChannelEnterprise"
-            className={styles.enterprise__input}
+            className={styles.enterprise__dropdown}
           >
             <option value="Entreprise 1">Entreprise 1</option>
             <option value="Entreprise 2">Entreprise 2</option>

@@ -4,11 +4,8 @@ const Quizz = () => {
   return (
     <section className={styles.quizz}>
       <h1 className={styles.quizz__title}>Quizz</h1>
-      <p className={styles.quizz__description}>Gestion des quizz</p>
-
       <section className={styles.quizz__section}>
         <h2 className={styles.section__title}>Créer ou Sélectionner un Quizz</h2>
-
         <form className={styles.quizz__form}>
           <label htmlFor="quizType" className={styles.quizz__label}>
             Type de Quizz
@@ -33,6 +30,11 @@ const Quizz = () => {
           </label>
           <input type="text" id="quizTitle" className={styles.quizz__titleInput} />
 
+          <label htmlFor="questionTitle" className={styles.quizz__label}>
+            Titre de la Question
+          </label>
+          <input type="text" id="questionTitle" className={styles.quizz__questionTitleInput} />
+
           <label htmlFor="answer1" className={styles.quizz__label}>Réponse 1</label>
           <input type="text" id="answer1" className={styles.quizz__answer} />
 
@@ -45,15 +47,19 @@ const Quizz = () => {
           <label htmlFor="answer4" className={styles.quizz__label}>Réponse 4</label>
           <input type="text" id="answer4" className={styles.quizz__answer} />
 
-          <article className={styles.quizz__buttonsRow}>
+          <fieldset className={styles.quizz__validateRow}>
+            <button type="button" className={styles.quizz__validateButton}>Valider</button>
+          </fieldset>
+
+          <fieldset className={styles.quizz__buttonsRow}>
             <button type="button" className={styles.quizz__button}>Ajouter une Question</button>
             <button type="button" className={styles.quizz__deleteButton}>Supprimer Question</button>
-          </article>
+          </fieldset>
 
-          <article className={styles.quizz__buttonsRow}>
+          <fieldset className={styles.quizz__buttonsRow}>
             <button type="button" className={styles.quizz__createButton}>Créer le Quizz</button>
             <button type="button" className={styles.quizz__deleteQuizButton}>Supprimer Quizz</button>
-          </article>
+          </fieldset>
         </form>
       </section>
     </section>

@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import Home from "./pages/home/Home";
-import Administrateur from "./pages/administrateur/Administrateur";
+import Administrator from "./pages/administrator/Administrator";
 import Profil from "./pages/profil/Profil";
 import Quizz from "./pages/quizz/Quizz";
 import Result from "./pages/result/Result";
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       { path: "/", element: <Home /> },
-      { path: "/administrateur", element: <Administrateur /> },
+      { path: "/administrator", element: <Administrator /> },
       { path: "/entreprise", element: <Enterprise /> },
       { path: "/profil", element: <Profil /> },
       { path: "/quizz", element: <Quizz /> },

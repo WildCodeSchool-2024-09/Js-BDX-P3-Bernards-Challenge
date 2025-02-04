@@ -20,6 +20,7 @@
   --background-dark: #1c1b1b;
   --text-light: #f5f1f1;
   --text-dark: #0e0d0d;
+  --success-color:green;
 
   --font-primary: 'Dela Gothic One', Arial, sans-serif;
   --font-secondary: 'Inter', Arial, sans-serif;
@@ -85,7 +86,17 @@ footer {
   text-align: right;
 }
 
-.main-content {
-  margin-left: 250px;
+.app {
+  display: flex;
+}
 
+.main-content {
+  flex-grow: 1;
+  margin-left: 16rem;
+}
+
+@media screen and (max-width: 800px) {
+  .main-content {
+    margin-left: 0;
+  }
 }

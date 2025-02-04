@@ -4,7 +4,6 @@ const Profil = () => {
   return (
     <section className={styles.profil}>
       <h1 className={styles.profil__title}>Profil</h1>
-      <p className={styles.profil__description}>Gestion de votre profil</p>
 
       <section className={styles.profil__formSection}>
         <h2 className={styles.profil__sectionTitle}>Modifier mon profil</h2>

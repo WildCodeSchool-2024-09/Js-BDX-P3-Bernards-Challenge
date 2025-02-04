@@ -11,8 +11,9 @@
 .admin__title {
   color: var(--secondary-color);
   text-align: center;
-  font-size: 7rem;
-  margin-bottom: var(--spacing-large);
+  font-size: 6rem; 
+  margin-bottom: 5rem;
+  margin-top: 1rem;
   white-space: normal;
   word-wrap: break-word;
 }
@@ -51,12 +52,20 @@
   color: var(--text-light);
 }
 
-.admin__input {
+.admin__inputText {
   padding: var(--spacing-small);
   font-size: 1.6rem;
   border: 1px solid var(--primary-color);
   border-radius: var(--spacing-small);
-  width: 63%;
+  width: 48%;
+}
+
+.admin__inputSelect {
+  padding: var(--spacing-small);
+  font-size: 1.6rem;
+  border: 1px solid var(--primary-color);
+  border-radius: var(--spacing-small);
+  width: 50%;
 }
 
 .admin__inputGroup {
@@ -66,7 +75,7 @@
 }
 
 .admin__inputGroup .admin__input {
-  width: 63%;
+  width: 48%;
 }
 
 .admin__submitButton {
@@ -102,4 +111,70 @@
 
 .admin__generateButton {
   width: 20%; 
+}
+
+@media screen and (max-width: 800px) {
+  .invitation {
+    margin-top: var(--spacing-medium);
+    height: auto;
+  }
+
+  .admin__title {
+    font-size: 2.5rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+
+  .admin__description {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-medium);
+  }
+
+  .admin__addUser {
+    width: 90%;
+    padding: var(--spacing-medium);
+  }
+
+  .admin__sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .admin__form {
+    gap: var(--spacing-medium);
+  }
+
+  .admin__inputGroup {
+    width: 100%;
+  }
+
+  .admin__label {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+
+  .admin__inputText,
+  .admin__inputSelect {
+    width: 100%;
+  }
+
+  .admin__submitButton {
+    width: 50%;
+    height: 4rem;
+    font-size: 1.4rem;
+  }
+
+  .admin__button {
+    width: 50%;
+    padding: var(--spacing-medium);
+    font-size: 1.3rem;
+  }
+
+  .admin__generateButton {
+    width: 50%;
+    padding: var(--spacing-medium);
+    font-size: 1.2rem;
+  }
+  .admin__inputSelect {
+    width: 103%;
+  }
 }

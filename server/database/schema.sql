@@ -15,7 +15,7 @@ CREATE TABLE  user (
 CREATE TABLE application_user (
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT ,
     password VARCHAR(100) NOT NULL,
-    user_id INT UNSIGNED NOT NULL, -- verifier si il doit etre unique
+    user_id INT UNSIGNED NOT NULL, 
     FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
 );
 

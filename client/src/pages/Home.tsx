@@ -2,11 +2,7 @@ import { useRef } from "react";
 
 import type { FormEventHandler } from "react";
 
-import {
-  // useLoaderData,
-  useOutletContext,
-  useRevalidator,
-} from "react-router-dom";
+import { useOutletContext, useRevalidator } from "react-router-dom";
 
 type User = {
   id: number;
@@ -18,12 +14,6 @@ type Auth = {
   user: User;
   token: string;
 };
-
-// type Item = {
-//   id: number;
-//   title: string;
-//   user_id: number;
-// };
 
 function Home() {
   const titleRef = useRef<HTMLInputElement>(null);
@@ -62,12 +52,12 @@ function Home() {
       if (response.status === 201) {
         revalidator.revalidate();
       } else {
-        // Log des détails de la réponse en cas d'échec
-        console.info(response);
+        // détails de la réponse en cas d'échec
+        alert(response);
       }
     } catch (err) {
-      // Log des erreurs possibles
-      console.error(err);
+      // erreurs possibles
+      alert(err);
     }
   };
 

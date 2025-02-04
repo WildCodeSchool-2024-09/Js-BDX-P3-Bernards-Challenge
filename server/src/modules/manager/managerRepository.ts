@@ -7,22 +7,21 @@ type Manager = {
   last_name: string;
   first_name: string;
   email: string;
-  enterprise_id: number;
-  application_user_id: number;
+  enterprise_id?: number;
+  application_user_id?: number;
   hashed_password: string;
   password: string;
+  user_id?: number;
 };
 
-type createManager = {
-  id: number;
-  application_user_id?: number;
-  user_id?: number;
-  hashed_password: string;
+type CreatableManager = {
   enterprise_id: number;
+  hashed_password: string;
+  user_id: number;
 };
 
 class ManagerRepository {
-  async create(manager: Omit<createManager, "id">) {
+  async create(manager: CreatableManager) {
     const connection = await databaseClient.getConnection();
     try {
       await connection.beginTransaction();

@@ -53,12 +53,12 @@ function Register() {
       if (response.status === 201) {
         navigate("/login");
       } else {
-        // Log des détails de la réponse en cas d'échec
-        console.info(response);
+        // détails de la réponse en cas d'échec
+        alert(response);
       }
     } catch (err) {
-      // Log des erreurs possibles
-      console.error(err);
+      // erreurs possibles
+      alert(err);
     }
   };
 

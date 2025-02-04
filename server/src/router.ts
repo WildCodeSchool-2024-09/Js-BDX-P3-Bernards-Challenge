@@ -8,7 +8,6 @@ const router = express.Router();
 
 import authMiddleware from "./middleware/authMiddleware";
 import managerActions from "./modules/manager/managerActions";
-
 router.get("/api/managers", managerActions.browse);
 router.get("/api/managers/:id", managerActions.read);
 router.post("/api/managers", managerActions.add);
@@ -19,6 +18,12 @@ router.post(
   authMiddleware.hashPassword,
   managerActions.add,
 );
+import adminActions from "./modules/admin/adminActions";
+router.get("/api/admins", adminActions.browse);
+router.get("/api/admins/:id", adminActions.read);
+router.post("/api/admins", adminActions.add);
+router.put("/api/admins/:id", adminActions.update);
+router.delete("/api/admins/:id", adminActions.remove);
 
 /* ************************************************************************* */
 

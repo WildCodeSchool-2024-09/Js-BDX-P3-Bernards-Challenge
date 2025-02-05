@@ -1,0 +1,177 @@
+@import "../../App.css";
+
+.home {
+  margin-top: var(--spacing-large);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: calc(100% - var(--spacing-medium));
+}
+
+.home__title {
+  color: var(--secondary-color);
+  text-align: center;
+  font-size: 6rem;
+  margin-bottom: 5rem;
+  margin-top: 1rem;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.home__description {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: var(--spacing-large);
+}
+
+.home__section {
+  width: 80%;
+  margin-bottom: var(--spacing-medium);
+  padding: var(--spacing-large);
+  border: 1px solid var(--primary-color);
+  border-radius: var(--spacing-medium);
+  text-align: center;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  box-shadow: var(--shadow-medium);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.home__section:hover {
+  box-shadow: var(--shadow-heavy);
+}
+
+.section__title {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-large);
+}
+
+.home__inputGroup {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+
+.home__label {
+  font-size: 1.6rem;
+  color: var(--text-light);
+  margin-bottom: var(--spacing-small);
+  text-align: start;
+  display: block;
+}
+
+.home__input {
+  width: 48%;
+  padding: var(--spacing-small);
+  font-size: 1.6rem;
+  border: 1px solid var(--primary-color);
+  border-radius: var(--spacing-small);
+  margin-bottom: 0;
+}
+
+.home__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-medium);
+}
+
+.home__forgotPassword {
+  font-size: 1.4rem;
+  color: var(--accent-color);
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin-bottom: var(--spacing-small);
+  cursor: pointer;
+}
+
+.home__forgotPassword:hover {
+  text-decoration: underline;
+}
+
+.home__button {
+  width: 20%;
+  padding: var(--spacing-small) var(--spacing-medium);
+  font-size: 1.6rem;
+  color: var(--text-light);
+  background-color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+  border-radius: var(--spacing-small);
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.home__button:hover {
+  background-color: var(--secondary-color-dark);
+}
+
+.home__button {
+  width: 20%;
+  height: 5rem;
+  font-size: 1.6rem;
+  color: var(--text-light);
+  background-color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+  border-radius: var(--spacing-small);
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.home__button:hover {
+  background-color: var(--secondary-color-dark);
+}
+
+@media screen and (max-width: 800px) {
+  .home {
+    margin-top: var(--spacing-medium);
+    height: auto;
+  }
+
+  .home__title {
+    font-size: 2.5rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+
+  .home__description {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-medium);
+  }
+
+  .home__section {
+    padding: var(--spacing-medium);
+  }
+
+  .section__title {
+    font-size: 1.5rem;
+  }
+
+  .home__inputGroup {
+    width: 80%;
+  }
+
+  .home__label {
+    font-size: 1.2rem;
+  }
+
+  .home__input {
+    width: 100%;
+  }
+
+  .home__form {
+    gap: var(--spacing-small);
+  }
+
+  .home__forgotPassword {
+    font-size: 1rem;
+  }
+
+  .home__button {
+    width: 50%;
+    height: 4rem;
+    font-size: 1.4rem;
+    margin-top: 1rem;
+  }
+}

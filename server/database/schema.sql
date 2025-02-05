@@ -11,7 +11,6 @@ CREATE TABLE  user (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP   
 );
 
--- Table: application_user
 CREATE TABLE application_user (
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT ,
     password VARCHAR(100) NOT NULL,
@@ -26,14 +25,12 @@ CREATE TABLE administators (
   application_user(id) ON DELETE CASCADE
 );
 
--- Table: enterprise
 CREATE TABLE enterprise (
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     token_slack VARCHAR(255)
 );
 
--- Table: manager
 CREATE TABLE manager (
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     application_user_id INT UNSIGNED NOT NULL,
@@ -42,7 +39,6 @@ CREATE TABLE manager (
     FOREIGN KEY (enterprise_id) REFERENCES enterprise(id)
 );
 
--- Table: channel_slack
 CREATE TABLE channel_slack (
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     channel_name VARCHAR(255) NOT NULL,
@@ -51,13 +47,11 @@ CREATE TABLE channel_slack (
     FOREIGN KEY (entreprise_id) REFERENCES enterprise(id) ON DELETE CASCADE
 );
 
--- Table: question
 CREATE TABLE question (
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(255)
 );
 
--- Table: response
 CREATE TABLE response (
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -65,7 +59,6 @@ CREATE TABLE response (
     FOREIGN KEY (question_id) REFERENCES question(id)
 );
 
--- Table: user_player
 CREATE TABLE user_player (
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     response_id INT UNSIGNED,
@@ -74,7 +67,6 @@ CREATE TABLE user_player (
     FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
 );
 
--- Table: channel_slack_user_player
 CREATE TABLE channel_slack_user_player (
     user_player_id INT UNSIGNED NOT NULL,
     channel_slack_id INT UNSIGNED NOT NULL,
@@ -82,14 +74,12 @@ CREATE TABLE channel_slack_user_player (
     FOREIGN KEY (channel_slack_id) REFERENCES channel_slack(id)
 );
 
--- Table: quizz
 CREATE TABLE quizz (
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255),
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Table: team_player
 CREATE TABLE team_player (
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
@@ -97,7 +87,6 @@ CREATE TABLE team_player (
     FOREIGN KEY (quizz_id) REFERENCES quizz(id) ON DELETE CASCADE
 );
 
--- Table: user_player_team_player
 CREATE TABLE user_player_team_player (
     user_player_id INT UNSIGNED NOT NULL,
     team_player_id INT UNSIGNED NOT NULL,
@@ -105,7 +94,6 @@ CREATE TABLE user_player_team_player (
     FOREIGN KEY (team_player_id) REFERENCES team_player(id)
 );
 
--- Table: quizz_question
 CREATE TABLE quizz_question (
     quizz_id INT UNSIGNED NOT NULL,
     question_id INT UNSIGNED NOT NULL,
@@ -113,7 +101,6 @@ CREATE TABLE quizz_question (
     FOREIGN KEY (question_id) REFERENCES question(id) ON DELETE CASCADE
 );
 
--- Table: channel_slack_quizz
 CREATE TABLE channel_slack_quizz (
     channel_slack_id INT UNSIGNED NOT NULL,
     quizz_id INT UNSIGNED NOT NULL,
@@ -121,7 +108,6 @@ CREATE TABLE channel_slack_quizz (
     FOREIGN KEY (quizz_id) REFERENCES quizz(id) ON DELETE CASCADE
 );
 
--- Table: boolean_responses
 CREATE TABLE boolean_responses (
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     response BOOLEAN NOT NULL,
@@ -129,7 +115,6 @@ CREATE TABLE boolean_responses (
     FOREIGN KEY (response_id) REFERENCES response(id)
 );
 
--- Table: image_responses
 CREATE TABLE image_responses (
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     path VARCHAR(255) NOT NULL,
@@ -137,7 +122,6 @@ CREATE TABLE image_responses (
     FOREIGN KEY (response_id) REFERENCES response(id)
 );
 
--- Table: text_responses
 CREATE TABLE text_responses (
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     response TEXT NOT NULL,

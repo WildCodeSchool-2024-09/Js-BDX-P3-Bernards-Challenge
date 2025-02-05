@@ -1,0 +1,180 @@
+@import "../../App.css";
+
+.admin {
+  margin-top: var(--spacing-large);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: calc(100% - var(--spacing-medium));
+}
+
+.admin__title {
+  color: var(--secondary-color);
+  text-align: center;
+  font-size: 6rem;
+  margin-bottom: 5rem;
+  margin-top: 1rem;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.admin__description {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: var(--spacing-large);
+}
+
+.admin__addUser {
+  width: 80%;
+  margin-top: var(--spacing-large);
+  padding: var(--spacing-large);
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border-radius: var(--spacing-medium);
+  box-shadow: var(--shadow-medium);
+}
+
+.admin__sectionTitle {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-medium);
+  text-align: center;
+}
+
+.admin__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+  align-items: center;
+}
+
+.admin__label {
+  font-size: 1.6rem;
+  color: var(--text-light);
+}
+
+.admin__inputText {
+  padding: var(--spacing-small);
+  font-size: 1.6rem;
+  border: 1px solid var(--primary-color);
+  border-radius: var(--spacing-small);
+  width: 48%;
+}
+
+.admin__inputSelect {
+  padding: var(--spacing-small);
+  font-size: 1.6rem;
+  border: 1px solid var(--primary-color);
+  border-radius: var(--spacing-small);
+  width: 50%;
+}
+
+.admin__inputGroup {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-small);
+}
+
+.admin__inputGroup .admin__input {
+  width: 48%;
+}
+
+.admin__submitButton {
+  width: 20%;
+  height: 5rem;
+  font-size: 1.6rem;
+  color: var(--text-light);
+  background-color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+  border-radius: var(--spacing-small);
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.admin__submitButton:hover {
+  background-color: var(--secondary-color-dark);
+}
+
+.admin__button {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: var(--spacing-small) var(--spacing-medium);
+  font-size: 1.3rem;
+  border-radius: var(--spacing-small);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 20%;
+}
+
+.admin__button:hover {
+  color: var(--text-light);
+}
+
+.admin__generateButton {
+  width: 20%;
+}
+
+@media screen and (max-width: 800px) {
+  .invitation {
+    margin-top: var(--spacing-medium);
+    height: auto;
+  }
+
+  .admin__title {
+    font-size: 2.5rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+
+  .admin__description {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-medium);
+  }
+
+  .admin__addUser {
+    width: 90%;
+    padding: var(--spacing-medium);
+  }
+
+  .admin__sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .admin__form {
+    gap: var(--spacing-medium);
+  }
+
+  .admin__inputGroup {
+    width: 100%;
+  }
+
+  .admin__label {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+
+  .admin__inputText,
+  .admin__inputSelect {
+    width: 100%;
+  }
+
+  .admin__submitButton {
+    width: 50%;
+    height: 4rem;
+    font-size: 1.4rem;
+  }
+
+  .admin__button {
+    width: 50%;
+    padding: var(--spacing-medium);
+    font-size: 1.3rem;
+  }
+
+  .admin__generateButton {
+    width: 50%;
+    padding: var(--spacing-medium);
+    font-size: 1.2rem;
+  }
+  .admin__inputSelect {
+    width: 103%;
+  }
+}

@@ -108,12 +108,6 @@
   z-index: 1000;
 }
 
-.burger__icon {
-  width: 2.5rem;
-  height: 2.5rem;
-  color: var(--secondary-color);
-}
-
 @media screen and (max-width: 800px) {
   .burger {
     display: block;

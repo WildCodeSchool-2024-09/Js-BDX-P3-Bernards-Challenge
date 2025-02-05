@@ -1,3 +1,5 @@
+import Navbar from "./components/navbar/Navbar";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import "./App.css";
 import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
@@ -13,45 +15,49 @@ type Auth = {
   user: User;
   token: string;
 };
-
-function App() {
-  const [auth, setAuth] = useState(null as Auth | null);
-  return (
+// const [auth, setAuth] = useState(null as Auth | null);
+/* <nav>
+<ul>
+  <li>
+    <Link to="/">Home</Link>
+  </li>
+  {auth == null ? (
     <>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          {auth == null ? (
-            <>
-              <li>
-                <Link to="/login">Login</Link>
-              </li>
-              <li>
-                <Link to="/register">Register</Link>
-              </li>
-            </>
-          ) : (
-            <li>
-              <button
-                type="button"
-                onClick={() => {
-                  setAuth(null);
-                }}
-              >
-                Logout
-              </button>
-            </li>
-          )}
-        </ul>
-      </nav>
-      {auth && <p>Hello {auth.user.email}</p>}
-      <main>
-        <Outlet context={{ auth, setAuth }} />
-      </main>
+      <li>
+        <Link to="/login">Login</Link>
+      </li>
+      <li>
+        <Link to="/register">Register</Link>
+      </li>
     </>
+  ) : (
+    <li>
+      <button
+        type="button"
+        onClick={() => {
+          setAuth(null);
+        }}
+      >
+        Logout
+      </button>
+    </li>
+  )}
+</ul>
+</nav> */
+// {auth && <p>Hello {auth.user.email}</p>}
+// <main>
+// <Outlet context={{ auth, setAuth }} />
+// </main>
+// </>
+const App = () => {
+  return (
+    <ThemeProvider>
+      <Navbar />
+      <main className="main-content">
+        <Outlet />
+      </main>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;

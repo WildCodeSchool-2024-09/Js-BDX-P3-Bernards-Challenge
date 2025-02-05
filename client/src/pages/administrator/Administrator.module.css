@@ -1,0 +1,197 @@
+@import "../../App.css";
+
+.administrator__container {
+  margin-top: var(--spacing-large);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: calc(100% - var(--spacing-medium));
+}
+
+.administrator__header {
+  color: var(--secondary-color);
+  text-align: center;
+  font-size: 6rem;
+  margin-bottom: 5rem;
+  margin-top: 1rem;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.administrator__info {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: var(--spacing-large);
+}
+
+.administrator__userList,
+.administrator__addUserSection {
+  width: 80%;
+  margin-bottom: 5rem;
+  padding: var(--spacing-large);
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border-radius: var(--spacing-medium);
+  box-shadow: var(--shadow-medium);
+}
+
+.administrator__addSectionTitle {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-medium);
+  text-align: center;
+}
+
+.administrator__tableContainer {
+  width: 100%;
+  margin-top: var(--spacing-medium);
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.administrator__tableContainer th,
+.administrator__tableContainer td {
+  padding: var(--spacing-small);
+  border: 1px solid var(--primary-color);
+}
+
+.administrator__tableContainer th {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.administrator__tableContainer td {
+  background-color: var(--secondary-color);
+  color: var(--text-light);
+}
+
+.administrator__revokeButton {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: var(--spacing-small) var(--spacing-medium);
+  border-radius: var(--spacing-small);
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.administrator__revokeButton:hover {
+  background-color: var(--secondary-color);
+  color: var(--text-light);
+}
+
+.administrator__addForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-large);
+  align-items: center;
+}
+
+.administrator__inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-small);
+}
+
+.administrator__inputLabel {
+  font-size: 1.6rem;
+  color: var(--text-light);
+}
+
+.administrator__inputField {
+  padding: var(--spacing-small);
+  font-size: 1.6rem;
+  border: 1px solid var(--primary-color);
+  border-radius: var(--spacing-small);
+  width: 48%;
+}
+
+.administrator__select {
+  padding: var(--spacing-small);
+  font-size: 1.6rem;
+  border: 1px solid var(--primary-color);
+  border-radius: var(--spacing-small);
+  width: 50%;
+}
+
+.administrator__submitButton {
+  width: 20%;
+  height: 5rem;
+  font-size: 1.6rem;
+  color: var(--text-light);
+  background-color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+  border-radius: var(--spacing-small);
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.administrator__submitButton:hover {
+  background-color: var(--secondary-color-dark);
+}
+
+.administrator__statusMessage {
+  color: var(--danger-color);
+  font-size: 1.4rem;
+  text-align: center;
+  margin-top: var(--spacing-medium);
+}
+
+@media screen and (max-width: 800px) {
+  .administrator__container {
+    margin-top: var(--spacing-medium);
+    height: auto;
+  }
+
+  .administrator__header {
+    font-size: 2.5rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+
+  .administrator__info {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-medium);
+  }
+
+  .administrator__userList,
+  .administrator__addUserSection {
+    width: 90%;
+    padding: var(--spacing-medium);
+  }
+
+  .administrator__addSectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .administrator__tableContainer th,
+  .administrator__tableContainer td {
+    padding: var(--spacing-small);
+  }
+
+  .administrator__addForm {
+    gap: var(--spacing-medium);
+  }
+
+  .administrator__inputGroup {
+    width: 80%;
+  }
+
+  .administrator__inputLabel {
+    font-size: 1.2rem;
+    margin: 1rem;
+  }
+
+  .administrator__inputField,
+  .administrator__select {
+    width: 100%;
+  }
+
+  .administrator__submitButton {
+    width: 50%;
+    height: 4rem;
+    font-size: 1.4rem;
+    margin-top: 1rem;
+  }
+  .administrator__select {
+    width: 102%;
+  }
+}

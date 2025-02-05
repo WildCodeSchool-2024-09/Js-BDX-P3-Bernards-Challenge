@@ -14,7 +14,10 @@ class EnterpriseRepository {
   }
 
   async read(id: number) {
-    const [rows] = await databaseClient.query<Rows>("SELECT * FROM enterprise WHERE id = ?", [id]);
+    const [rows] = await databaseClient.query<Rows>(
+      "SELECT * FROM enterprise WHERE id = ?",
+      [id],
+    );
     return rows[0];
   }
 
@@ -23,7 +26,7 @@ class EnterpriseRepository {
 
     const [result] = await databaseClient.query<Result>(
       "INSERT INTO enterprise (name, token_slack) VALUES (?, ?)",
-      [name, token_slack]
+      [name, token_slack],
     );
 
     const enterpriseId = result.insertId;
@@ -36,7 +39,7 @@ class EnterpriseRepository {
       `UPDATE enterprise 
        SET name = ?, token_slack = ? 
        WHERE id = ?`,
-      [enterprise.name, enterprise.token_slack, enterprise.id]
+      [enterprise.name, enterprise.token_slack, enterprise.id],
     );
 
     return result.affectedRows;
@@ -45,7 +48,7 @@ class EnterpriseRepository {
   async delete(id: number) {
     const [result] = await databaseClient.query<Result>(
       "DELETE FROM enterprise WHERE id = ?",
-      [id]
+      [id],
     );
 
     if (result.affectedRows === 0) {

@@ -1,13 +1,13 @@
 @font-face {
-  font-family: 'Dela Gothic One';
-  src: url('/fonts/DelaGothicOne-Regular.ttf') format('truetype');
+  font-family: "Dela Gothic One";
+  src: url("/fonts/DelaGothicOne-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Inter';
-  src: url('/fonts/Inter-VariableFont.ttf') format('truetype');
+  font-family: "Inter";
+  src: url("/fonts/Inter-VariableFont.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -22,8 +22,8 @@
   --text-dark: #0e0d0d;
   --success-color: green;
 
-  --font-primary: 'Dela Gothic One', Arial, sans-serif;
-  --font-secondary: 'Inter', Arial, sans-serif;
+  --font-primary: "Dela Gothic One", Arial, sans-serif;
+  --font-secondary: "Inter", Arial, sans-serif;
 
   --spacing-small: 8px;
   --spacing-medium: 16px;

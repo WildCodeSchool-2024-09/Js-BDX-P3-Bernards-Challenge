@@ -38,10 +38,10 @@ const edit: RequestHandler = async (req, res, next) => {
     const { name, token_slack } = req.body;
 
     const enterprise = {
-      id: enterpriseId, 
+      id: enterpriseId,
       name,
       token_slack,
-  };
+    };
 
     const result = await enterpriseRepository.update(enterprise);
 

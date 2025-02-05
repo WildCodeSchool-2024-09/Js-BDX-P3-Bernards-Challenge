@@ -159,7 +159,7 @@
     color: var(--secondary-color);
     text-decoration: none;
   }
-  
+
   .navbar__logo:hover {
     transform: none;
   }

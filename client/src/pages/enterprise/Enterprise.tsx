@@ -25,7 +25,7 @@ const Enterprise = () => {
                 </select>
               </td>
               <td>
-              <select className={`${styles.enterprise__dropdowntop}`}>
+                <select className={`${styles.enterprise__dropdowntop}`}>
                   <option value="marketing">marketing</option>
                   <option value="dev">dev</option>
                   <option value="sales">sales</option>
@@ -35,14 +35,14 @@ const Enterprise = () => {
             <tr>
               <td>Entreprise 2</td>
               <td>
-              <select className={`${styles.enterprise__dropdowntop}`}>
+                <select className={`${styles.enterprise__dropdowntop}`}>
                   <option value="Geoffrey">Geoffrey</option>
                   <option value="Raph">Raph</option>
                   <option value="Mathieu">Mathieu</option>
                 </select>
               </td>
               <td>
-              <select className={`${styles.enterprise__dropdowntop}`}>
+                <select className={`${styles.enterprise__dropdowntop}`}>
                   <option value="dev">dev</option>
                   <option value="marketing">marketing</option>
                   <option value="support">support</option>
@@ -54,9 +54,14 @@ const Enterprise = () => {
       </section>
 
       <section className={styles.enterprise__addEnterprise}>
-      <h2 className={styles.enterprise__sectionTitle}>Ajouter une nouvelle entreprise</h2>
+        <h2 className={styles.enterprise__sectionTitle}>
+          Ajouter une nouvelle entreprise
+        </h2>
         <form className={styles.enterprise__form}>
-          <label htmlFor="newEnterpriseName" className={styles.enterprise__label}>
+          <label
+            htmlFor="newEnterpriseName"
+            className={styles.enterprise__label}
+          >
             Nom de l'entreprise
           </label>
           <input
@@ -65,7 +70,10 @@ const Enterprise = () => {
             className={styles.enterprise__input}
           />
 
-          <label htmlFor="newEnterpriseToken" className={styles.enterprise__label}>
+          <label
+            htmlFor="newEnterpriseToken"
+            className={styles.enterprise__label}
+          >
             Token Slack
           </label>
           <input
@@ -81,9 +89,14 @@ const Enterprise = () => {
       </section>
 
       <section className={styles.enterprise__addChannel}>
-      <h2 className={styles.enterprise__sectionTitle}>Ajouter un nouveau channel</h2>
+        <h2 className={styles.enterprise__sectionTitle}>
+          Ajouter un nouveau channel
+        </h2>
         <form className={styles.enterprise__form}>
-          <label htmlFor="newChannelEnterprise" className={styles.enterprise__label}>
+          <label
+            htmlFor="newChannelEnterprise"
+            className={styles.enterprise__label}
+          >
             Nom de l'entreprise
           </label>
           <select

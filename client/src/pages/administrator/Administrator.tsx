@@ -12,7 +12,9 @@ const Administrator = () => {
     <section className={styles.administrator__container}>
       <h1 className={styles.administrator__header}>Administrateurs</h1>
 
-      {message && <p className={styles.administrator__statusMessage}>{message}</p>}
+      {message && (
+        <p className={styles.administrator__statusMessage}>{message}</p>
+      )}
 
       <section className={styles.administrator__userList}>
         <table className={styles.administrator__tableContainer}>
@@ -47,10 +49,14 @@ const Administrator = () => {
       </section>
 
       <section className={styles.administrator__addUserSection}>
-      <h2 className={styles.administrator__addSectionTitle}>
-      Ajouter un nouvel administrateur</h2>
+        <h2 className={styles.administrator__addSectionTitle}>
+          Ajouter un nouvel administrateur
+        </h2>
         <form className={styles.administrator__addForm}>
-          <label htmlFor="firstname" className={styles.administrator__inputLabel}>
+          <label
+            htmlFor="firstname"
+            className={styles.administrator__inputLabel}
+          >
             Prénom
           </label>
           <input
@@ -59,7 +65,10 @@ const Administrator = () => {
             className={styles.administrator__inputField}
           />
 
-          <label htmlFor="lastname" className={styles.administrator__inputLabel}>
+          <label
+            htmlFor="lastname"
+            className={styles.administrator__inputLabel}
+          >
             Nom de famille
           </label>
           <input
@@ -77,7 +86,10 @@ const Administrator = () => {
             className={styles.administrator__inputField}
           />
 
-          <label htmlFor="superAdmin" className={styles.administrator__inputLabel}>
+          <label
+            htmlFor="superAdmin"
+            className={styles.administrator__inputLabel}
+          >
             Super Administrateur
           </label>
           <select id="superAdmin" className={styles.administrator__select}>

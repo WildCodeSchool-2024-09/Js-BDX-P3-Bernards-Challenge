@@ -1,4 +1,4 @@
-@import '../../App.css';
+@import "../../App.css";
 
 .admin {
   margin-top: var(--spacing-large);
@@ -11,7 +11,7 @@
 .admin__title {
   color: var(--secondary-color);
   text-align: center;
-  font-size: 6rem; 
+  font-size: 6rem;
   margin-bottom: 5rem;
   margin-top: 1rem;
   white-space: normal;
@@ -79,13 +79,13 @@
 }
 
 .admin__submitButton {
-  width: 20%; 
-  height: 5rem; 
-  font-size: 1.6rem; 
+  width: 20%;
+  height: 5rem;
+  font-size: 1.6rem;
   color: var(--text-light);
   background-color: var(--secondary-color);
   border: 1px solid var(--secondary-color);
-  border-radius: var(--spacing-small); 
+  border-radius: var(--spacing-small);
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -110,7 +110,7 @@
 }
 
 .admin__generateButton {
-  width: 20%; 
+  width: 20%;
 }
 
 @media screen and (max-width: 800px) {

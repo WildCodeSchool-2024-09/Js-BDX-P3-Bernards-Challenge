@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import { ThemeProvider } from "./contexts/ThemeContext";
 import Navbar from "./components/navbar/Navbar";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import "./App.css";
 
 const App = () => {

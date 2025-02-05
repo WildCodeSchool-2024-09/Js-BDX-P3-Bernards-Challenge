@@ -5,7 +5,8 @@ const Invitation = () => {
   const [password, setPassword] = useState<string>("");
 
   const generatePassword = () => {
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    const chars =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     let newPassword = "";
     for (let i = 0; i < 12; i++) {
       newPassword += chars.charAt(Math.floor(Math.random() * chars.length));
@@ -45,10 +46,16 @@ const Invitation = () => {
             <option value="company3">Entreprise 3</option>
           </select>
 
-          <label htmlFor="invitationSlackChannel" className={styles.admin__label}>
+          <label
+            htmlFor="invitationSlackChannel"
+            className={styles.admin__label}
+          >
             Channel Slack
           </label>
-          <select id="invitationSlackChannel" className={styles.admin__inputSelect}>
+          <select
+            id="invitationSlackChannel"
+            className={styles.admin__inputSelect}
+          >
             <option value="#general">#marketing</option>
             <option value="#random">#dev</option>
             <option value="#team-project">#sales</option>

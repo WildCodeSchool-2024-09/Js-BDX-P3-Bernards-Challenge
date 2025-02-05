@@ -14,7 +14,9 @@ const Home = () => {
 
         <form className={styles.home__form}>
           <p>
-            <label htmlFor="email" className={styles.home__label}>Email</label>
+            <label htmlFor="email" className={styles.home__label}>
+              Email
+            </label>
           </p>
           <input
             id="email"
@@ -24,7 +26,9 @@ const Home = () => {
           />
 
           <p>
-            <label htmlFor="password" className={styles.home__label}>Mot de passe</label>
+            <label htmlFor="password" className={styles.home__label}>
+              Mot de passe
+            </label>
           </p>
           <input
             id="password"
@@ -33,8 +37,8 @@ const Home = () => {
             required
           />
 
-          <button 
-            type="button" 
+          <button
+            type="button"
             className={styles.home__forgotPassword}
             onClick={handleForgotPassword}
           >

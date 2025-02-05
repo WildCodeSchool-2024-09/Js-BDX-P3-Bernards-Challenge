@@ -1,4 +1,4 @@
-@import '../../App.css';
+@import "../../App.css";
 
 .home {
   margin-top: var(--spacing-large);
@@ -11,7 +11,7 @@
 .home__title {
   color: var(--secondary-color);
   text-align: center;
-  font-size: 6rem; 
+  font-size: 6rem;
   margin-bottom: 5rem;
   margin-top: 1rem;
   white-space: normal;

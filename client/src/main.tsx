@@ -2,14 +2,14 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import App from "./App";
-import Home from "./pages/home/Home";
 import Administrator from "./pages/administrator/Administrator";
+import Enterprise from "./pages/enterprise/Enterprise";
+import Home from "./pages/home/Home";
+import Invitation from "./pages/invitation/Invitation";
 import Profil from "./pages/profil/Profil";
 import Quizz from "./pages/quizz/Quizz";
 import Result from "./pages/result/Result";
 import Transmission from "./pages/transmission/Transmission";
-import Invitation from "./pages/invitation/Invitation";
-import Enterprise from "./pages/enterprise/Enterprise";
 
 const router = createBrowserRouter([
   {

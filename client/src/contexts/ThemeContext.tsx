@@ -1,8 +1,17 @@
-import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
+import {
+  type ReactNode,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import type { Context } from "react";
 
-const ThemeContext: Context<{ isDarkMode: boolean; toggleTheme: () => void } | undefined> = 
-  createContext<{ isDarkMode: boolean; toggleTheme: () => void } | undefined>(undefined);
+const ThemeContext: Context<
+  { isDarkMode: boolean; toggleTheme: () => void } | undefined
+> = createContext<{ isDarkMode: boolean; toggleTheme: () => void } | undefined>(
+  undefined,
+);
 
 type ThemeProviderProps = {
   children: ReactNode;

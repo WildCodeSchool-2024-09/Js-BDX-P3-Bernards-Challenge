@@ -18,7 +18,9 @@ const Transmission = () => {
     <form className={styles.transmission} onSubmit={handleSubmit}>
       <h1 className={styles.transmission__title}>Diffusion</h1>
 
-      <section className={`${styles.section} ${styles["section--enterprises"]}`}>
+      <section
+        className={`${styles.section} ${styles["section--enterprises"]}`}
+      >
         <h2 className={styles.section__title}>Liste des Entreprises</h2>
         <select className={styles.dropdown}>
           <option>Entreprise 1</option>
@@ -45,10 +47,7 @@ const Transmission = () => {
         </select>
       </section>
 
-      <button
-        type="submit"
-        className={styles.transmission__slackButton}
-      >
+      <button type="submit" className={styles.transmission__slackButton}>
         Envoyer sur Slack
       </button>
 
@@ -62,10 +61,7 @@ const Transmission = () => {
         />
       </section>
 
-      <button
-        type="button"
-        className={styles.transmission__slackButton}
-      >
+      <button type="button" className={styles.transmission__slackButton}>
         Envoyer en Différé
       </button>
     </form>

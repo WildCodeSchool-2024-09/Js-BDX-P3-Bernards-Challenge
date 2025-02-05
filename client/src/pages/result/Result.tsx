@@ -36,7 +36,7 @@ const Result = () => {
 
       <section className={styles.result__section}>
         <h2 className={styles.section__title}>Résultats</h2>
-        
+
         <table className={styles.result__table}>
           <thead>
             <tr>

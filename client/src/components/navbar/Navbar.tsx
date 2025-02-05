@@ -21,9 +21,9 @@ const Navbar = () => {
         aria-label="Ouvrir le menu"
       >
         {menuOpen ? (
-          <FiX className={styles.burger__icon} />
+          <FiX size="2.5rem" color="var(--secondary-color)" />
         ) : (
-          <FiMenu className={styles.burger__icon} />
+          <FiMenu size="2.5rem" color="var(--secondary-color)" />
         )}
       </button>
 

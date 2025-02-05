@@ -36,6 +36,19 @@ router.post("/api/admins", adminActions.add);
 router.put("/api/admins/:id", adminActions.update);
 router.delete("/api/admins/:id", adminActions.remove);
 
+import quizzActions from "./modules/quizz/quizzActions";
+
+router.get("/api/quizz", quizzActions.browse);
+router.get("/api/quizz/:id", quizzActions.read);
+router.post("/api/quizz", quizzActions.add);
+router.put("/api/quizz/:id", quizzActions.update);
+router.delete("/api/quizz/:id", quizzActions.destroy);
+
 /* ************************************************************************* */
+
+import resultAction from "./modules/results/resultAction";
+
+router.get("api/result", resultAction.browse);
+router.get("api/result/:id", resultAction.read);
 
 export default router;

@@ -52,13 +52,12 @@ app.use(
 
 // Uncomment one or more of these options depending on the format of the data sent by your client:
 
-// app.use(express.json());
+app.use(express.json());
 // app.use(express.urlencoded());
 // app.use(express.text());
 // app.use(express.raw());
 
 /* ************************************************************************* */
-
 // Import the API router
 import router from "./router";
 

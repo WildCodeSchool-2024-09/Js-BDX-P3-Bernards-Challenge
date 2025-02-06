@@ -2,7 +2,7 @@ import Navbar from "./components/navbar/Navbar";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import "./App.css";
 import { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 type User = {
   id: number;
@@ -50,11 +50,12 @@ type Auth = {
 // </main>
 // </>
 const App = () => {
+  const [auth, setAuth] = useState(null as Auth | null);
   return (
     <ThemeProvider>
       <Navbar />
       <main className="main-content">
-        <Outlet />
+        <Outlet context={{ auth, setAuth }} />
       </main>
     </ThemeProvider>
   );

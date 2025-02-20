@@ -1,7 +1,7 @@
 import Navbar from "./components/navbar/Navbar";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 
 type User = {

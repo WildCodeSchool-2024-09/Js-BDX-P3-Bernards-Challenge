@@ -18,8 +18,10 @@ type Auth = {
 };
 
 const Profil = () => {
-
-  const { auth, setAuth } = useOutletContext<{ auth: Auth | null, setAuth: (auth: Auth) => void }>();
+  const { auth, setAuth } = useOutletContext<{
+    auth: Auth | null;
+    setAuth: (auth: Auth) => void;
+  }>();
 
   const [hasFetched, setHasFetched] = useState(false); // État local pour vérifier si le fetch a été effectué
 
@@ -28,16 +30,21 @@ const Profil = () => {
     if (auth && !hasFetched) {
       const fetchUser = async () => {
         try {
-          const response = await fetch(`${import.meta.env.VITE_API_URL}/api/managers/${auth?.user.id}`, {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${auth.token}`,
+          const response = await fetch(
+            `${import.meta.env.VITE_API_URL}/api/managers/${auth?.user.id}`,
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${auth.token}`,
+              },
             },
-          });
+          );
 
           if (!response.ok) {
-            throw new Error("Problème lors de la récupération des données utilisateur");
+            throw new Error(
+              "Problème lors de la récupération des données utilisateur",
+            );
           }
 
           // const responseAdmin = await fetch(`${import.meta.env.VITE_API_URL}/api/admins/${auth?.user.id}`, {
@@ -58,11 +65,14 @@ const Profil = () => {
           setAuth({
             token: auth.token,
             // user: userData || userDataAdmin,
-            user: userData
+            user: userData,
           });
           setHasFetched(true); // On marque le fetch comme effectué
         } catch (error) {
-          console.error("Erreur lors du fetch des données utilisateur :", error);
+          console.error(
+            "Erreur lors du fetch des données utilisateur :",
+            error,
+          );
         }
       };
 
@@ -71,7 +81,6 @@ const Profil = () => {
   }, [auth, hasFetched, setAuth]);
 
   const verificationPassword = async (password: string) => {
-
     // Vérification du mot de passe
     try {
       // Appel à l'API pour demander une connexion`
@@ -79,7 +88,10 @@ const Profil = () => {
         `${import.meta.env.VITE_API_URL}/api/checkPassword`,
         {
           method: "POST",
-          headers: { "Content-Type": "application/json", Authorization: `Bearer ${auth?.token}` },
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${auth?.token}`,
+          },
           body: JSON.stringify({
             email:
               /* rendering process ensures the ref is defined before the form is submitted */
@@ -94,7 +106,6 @@ const Profil = () => {
       // Redirection vers la page de connexion si la création réussit
       if (response.status === 200) {
         return true;
-
       }
       return false;
     } catch (err) {
@@ -111,15 +122,22 @@ const Profil = () => {
 
   const handleSubmit: FormEventHandler = async (event) => {
     event.preventDefault();
-    if (await verificationPassword((oldPasswordRef.current as HTMLInputElement).value) && auth) {
-
+    if (
+      (await verificationPassword(
+        (oldPasswordRef.current as HTMLInputElement).value,
+      )) &&
+      auth
+    ) {
       try {
         // Appel à l'API pour demander une connexion`
         const response = await fetch(
           `${import.meta.env.VITE_API_URL}/api/managers/${auth?.user.id}`,
           {
             method: "PATCH",
-            headers: { "Content-Type": "application/json", Authorization: `Bearer ${auth?.token}` },
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${auth?.token}`,
+            },
             body: JSON.stringify({
               last_name:
                 /* rendering process ensures the ref is defined before the form is submitted */
@@ -139,7 +157,7 @@ const Profil = () => {
 
         // Redirection vers la page de connexion si la création réussit
         if (response.status === 204) {
-          alert("votre mot de passe a bien etait changé")
+          alert("votre mot de passe a bien etait changé");
           const user = {
             last_name:
               /* rendering process ensures the ref is defined before the form is submitted */
@@ -150,13 +168,10 @@ const Profil = () => {
             email:
               /* rendering process ensures the ref is defined before the form is submitted */
               (emailRef.current as HTMLInputElement).value,
-            id:
-              auth?.user.id
-          }
+            id: auth?.user.id,
+          };
 
-          setAuth(
-            { token: auth?.token, user: user }
-          );
+          setAuth({ token: auth?.token, user: user });
 
           // navigate("/profil");
         } else {
@@ -168,7 +183,7 @@ const Profil = () => {
         alert(err);
       }
     }
-  }
+  };
 
   return (
     <section className={styles.profil}>
@@ -181,17 +196,35 @@ const Profil = () => {
           <label htmlFor="firstName" className={styles.profil__label}>
             Prénom
           </label>
-          <input type="text" id="firstName" className={styles.profil__input} value={auth?.user.first_name} ref={first_nameRef} />
+          <input
+            type="text"
+            id="firstName"
+            className={styles.profil__input}
+            value={auth?.user.first_name}
+            ref={first_nameRef}
+          />
 
           <label htmlFor="lastName" className={styles.profil__label}>
             Nom
           </label>
-          <input type="text" id="lastName" className={styles.profil__input} value={auth?.user.last_name} ref={last_nameRef} />
+          <input
+            type="text"
+            id="lastName"
+            className={styles.profil__input}
+            value={auth?.user.last_name}
+            ref={last_nameRef}
+          />
 
           <label htmlFor="email" className={styles.profil__label}>
             Email
           </label>
-          <input type="email" id="email" className={styles.profil__input} value={auth?.user.email} ref={emailRef} />
+          <input
+            type="email"
+            id="email"
+            className={styles.profil__input}
+            value={auth?.user.email}
+            ref={emailRef}
+          />
 
           <label htmlFor="password" className={styles.profil__label}>
             Ancien mot de passe

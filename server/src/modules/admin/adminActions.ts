@@ -30,8 +30,10 @@ const add: RequestHandler = async (req, res, next) => {
       email: req.body.email,
       last_name: req.body.last_name,
       first_name: req.body.first_name,
+      hashed_password: req.body.hashed_password,
       password: req.body.password,
     };
+
     const insertId = await adminRepository.create(newAdmin);
     res.status(201).json({ insertId });
   } catch (err) {
@@ -47,6 +49,7 @@ const update: RequestHandler = async (req, res, next) => {
       last_name: req.body.last_name,
       first_name: req.body.first_name,
       password: req.body.password,
+      hashed_password: req.body.hashed_password,
     };
     const success = await adminRepository.update(updatedAdmin);
     if (success) {

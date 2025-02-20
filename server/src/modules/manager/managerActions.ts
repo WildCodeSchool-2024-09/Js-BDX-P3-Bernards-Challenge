@@ -64,12 +64,10 @@ const update: RequestHandler = async (req, res, next) => {
     const updatedManager = {
       first_name: req.body.first_name,
       last_name: req.body.last_name,
-      hashed_password: req.body.password,
+      hashed_password: req.body.hashed_password,
       password: req.body.password,
       email: req.body.email,
       id: managerId,
-      enterprise_id: req.body.enterprise_id,
-      application_user_id: req.body.application_user_id,
     };
 
     // Update the manager

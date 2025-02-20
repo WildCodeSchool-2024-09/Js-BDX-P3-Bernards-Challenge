@@ -34,7 +34,7 @@ const Navbar = () => {
           onClick={() => setMenuOpen(false)}
         >
           <img
-            src="/images/image_logo.png"
+            src="/images/bernard.png"
             alt="Retour à la page d'accueil"
             className={styles.navbar__logo}
           />

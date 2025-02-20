@@ -60,14 +60,16 @@ const Home = () => {
 
         setAuth(user);
 
+        // console.log(user);
+
         navigate("/profil");
       } else {
         // Log des détails de la réponse en cas d'échec
-        console.info(response);
+        alert(response);
       }
     } catch (err) {
       // Log des erreurs possibles
-      console.error(err);
+      alert(err);
     }
   };
 

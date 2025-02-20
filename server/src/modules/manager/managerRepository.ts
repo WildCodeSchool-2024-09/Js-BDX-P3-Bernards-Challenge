@@ -63,13 +63,21 @@ class ManagerRepository {
 
   async read(id: number) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
+    // const [rows] = await databaseClient.query<Rows>(
+    //   `SELECT last_name, first_name, email, name, manager.id
+    //   FROM manager
+    //   INNER JOIN application_user ON manager.application_user_id = application_user.id
+    //   INNER JOIN user ON application_user.user_id = user.id
+    //   INNER JOIN enterprise ON manager.enterprise_id = enterprise.id
+    //   WHERE application_user.id = ?`,
+    //   [id],
+    // );
+
     const [rows] = await databaseClient.query<Rows>(
-      `SELECT last_name, first_name, email, name
-      FROM manager
-      INNER JOIN application_user ON manager.application_user_id = application_user.id
-      INNER JOIN user ON application_user.user_id = user.id
-      INNER JOIN enterprise ON manager.enterprise_id = enterprise.id
-      WHERE manager.id = ?`,
+      `SELECT last_name, first_name, email, application_user.id
+FROM application_user
+INNER JOIN user ON application_user.user_id = user.id
+WHERE application_user.id = ?`,
       [id],
     );
 
@@ -96,6 +104,7 @@ class ManagerRepository {
 
   async update(manager: Manager) {
     const connection = await databaseClient.getConnection();
+
     try {
       await connection.beginTransaction();
 

@@ -1,7 +1,7 @@
 import Navbar from "./components/navbar/Navbar";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 
 type User = {
@@ -15,42 +15,20 @@ type Auth = {
   user: User;
   token: string;
 };
-// const [auth, setAuth] = useState(null as Auth | null);
-/* <nav>
-<ul>
-  <li>
-    <Link to="/">Home</Link>
-  </li>
-  {auth == null ? (
-    <>
-      <li>
-        <Link to="/login">Login</Link>
-      </li>
-      <li>
-        <Link to="/register">Register</Link>
-      </li>
-    </>
-  ) : (
-    <li>
-      <button
-        type="button"
-        onClick={() => {
-          setAuth(null);
-        }}
-      >
-        Logout
-      </button>
-    </li>
-  )}
-</ul>
-</nav> */
-// {auth && <p>Hello {auth.user.email}</p>}
-// <main>
-// <Outlet context={{ auth, setAuth }} />
-// </main>
-// </>
+
 const App = () => {
-  const [auth, setAuth] = useState(null as Auth | null);
+  const [auth, setAuth] = useState<Auth | null>(() => {
+    const storedAuth = localStorage.getItem("auth");
+    return storedAuth ? JSON.parse(storedAuth) : null;
+  });
+
+  useEffect(() => {
+    if (auth) {
+      localStorage.setItem("auth", JSON.stringify(auth));
+    } else {
+      localStorage.removeItem("auth"); // Nettoie quand l'utilisateur se déconnecte
+    }
+  }, [auth]);
   return (
     <ThemeProvider>
       <Navbar />

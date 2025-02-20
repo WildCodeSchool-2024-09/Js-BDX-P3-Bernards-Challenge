@@ -11,12 +11,19 @@ import authActions from "./modules/auth/authActions";
 import managerActions from "./modules/manager/managerActions";
 
 router.post("/api/login", authActions.login);
-router.use(authActions.verifyToken);
+// router.use(authActions.verifyToken);
+
+// check password
+router.post("/api/checkPassword", authActions.checkPassword);
 
 router.get("/api/managers", managerActions.browse);
 router.get("/api/managers/:id", managerActions.read);
 router.post("/api/managers", managerActions.add);
-router.patch("/api/managers/:id", managerActions.update);
+router.patch(
+  "/api/managers/:id",
+  authMiddleware.hashPassword,
+  managerActions.update,
+);
 router.delete("/api/managers/:id", managerActions.destroy);
 router.post(
   "/api/managers/:id",
@@ -36,9 +43,14 @@ import adminActions from "./modules/admin/adminActions";
 
 router.get("/api/admins", adminActions.browse);
 router.get("/api/admins/:id", adminActions.read);
-router.post("/api/admins", adminActions.add);
 router.put("/api/admins/:id", adminActions.update);
 router.delete("/api/admins/:id", adminActions.remove);
+router.post("/api/admins", authMiddleware.hashPassword, adminActions.add);
+router.patch(
+  "/api/admins/:id",
+  authMiddleware.hashPassword,
+  adminActions.update,
+);
 
 import quizzActions from "./modules/quizz/quizzActions";
 

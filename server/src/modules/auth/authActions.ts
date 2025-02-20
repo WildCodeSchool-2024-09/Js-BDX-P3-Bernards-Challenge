@@ -2,13 +2,19 @@ import argon2 from "argon2";
 import type { RequestHandler } from "express";
 import jwt from "jsonwebtoken";
 import managerRepository from "../manager/managerRepository";
+import adminRepository from "../admin/adminRepository";
 
 const login: RequestHandler = async (req, res, next) => {
   try {
     // Fetch a specific user from the database based on the provided email
+    // const application_admin = await adminRepository.readByEmailWithPassword(
+    //   req.body.email,
+    // );
     const application_user = await managerRepository.readByEmailWithPassword(
       req.body.email,
     );
+
+    // console.log("appli_user", application_user);
 
     if (application_user == null) {
       res.sendStatus(422);
@@ -19,6 +25,11 @@ const login: RequestHandler = async (req, res, next) => {
       application_user.password,
       req.body.password,
     );
+
+    // const varifiedAdmin = await argon2.verify(
+    //   application_admin.password,
+    //   req.body.password,
+    // );
 
     if (verified) {
       // Respond with the user and a signed token in JSON format (but without the hashed password)
@@ -76,4 +87,41 @@ const verifyToken: RequestHandler = (req, res, next) => {
   }
 };
 
-export default { login, verifyToken };
+const checkPassword: RequestHandler = async (req, res, next) => {
+  try {
+    // Fetch a specific user from the database based on the provided email
+    const application_user = await managerRepository.readByEmailWithPassword(
+      req.body.email,
+    );
+
+    const application_admin = await adminRepository.readByEmailWithPassword(
+      req.body.email,
+    );
+
+    if (application_user == null || application_admin == null) {
+      res.sendStatus(422);
+      return;
+    }
+
+    const verified = await argon2.verify(
+      application_user.password,
+      req.body.password,
+    );
+
+    const verifiedAdmin = await argon2.verify(
+      application_admin.password,
+      req.body.password,
+    );
+
+    if (verified) {
+      res.sendStatus(200);
+    } else {
+      res.sendStatus(422);
+    }
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
+export default { login, verifyToken, checkPassword };

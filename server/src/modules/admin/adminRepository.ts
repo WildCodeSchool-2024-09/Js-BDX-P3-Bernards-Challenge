@@ -8,10 +8,12 @@ type User = {
 };
 
 type AdminData = {
+  id?: number;
   email: string;
   last_name: string;
   first_name: string;
   password: string;
+  hashed_password: string;
 };
 
 class AdminRepository {
@@ -32,7 +34,7 @@ class AdminRepository {
 
       const [appUserResult] = await connection.query<Result>(
         "INSERT INTO application_user (password, user_id) VALUES (?, ?)",
-        [adminData.password, userId],
+        [adminData.hashed_password, userId],
       );
 
       const applicationUserId = appUserResult.insertId;
@@ -95,7 +97,7 @@ class AdminRepository {
           admin.email,
           admin.first_name,
           admin.last_name,
-          admin.password,
+          admin.hashed_password,
           admin.id,
         ],
       );
@@ -124,6 +126,22 @@ class AdminRepository {
       [id],
     );
     return result.affectedRows;
+  }
+
+  async readByEmailWithPassword(email: string) {
+    // Execute the SQL SELECT query to retrieve a specific user by its email
+    const [rows] = await databaseClient.query<Rows>(
+      `
+      SELECT email, password, application_user.id
+      FROM user
+      INNER JOIN application_user ON user.id = application_user.user_id
+      WHERE email = ?;
+      `,
+      [email],
+    );
+
+    // Return the first row of the result, which represents the user
+    return rows[0] as AdminData;
   }
 }
 export default new AdminRepository();
